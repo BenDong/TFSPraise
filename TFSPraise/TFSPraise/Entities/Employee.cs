@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace TFSPraise.Domains
+﻿namespace TFSPraise.Domains
 {
     public class Employee
     {

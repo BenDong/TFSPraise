@@ -144,11 +144,18 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IBlogRepository.cs" />
+    <Compile Include="Abstract\IEmployeeRepository.cs" />
+    <Compile Include="Abstract\IPraiseRepository.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Domains\Blog.cs" />
-    <Compile Include="Domains\Praise.cs" />
-    <Compile Include="Domains\Employee.cs" />
+    <Compile Include="Concrete\BlogRepository.cs" />
+    <Compile Include="Concrete\EmployeeRepository.cs" />
+    <Compile Include="Concrete\PraiseRepository.cs" />
+    <Compile Include="Concrete\TFSPraiseContext.cs" />
+    <Compile Include="Entities\Blog.cs" />
+    <Compile Include="Entities\Praise.cs" />
+    <Compile Include="Entities\Employee.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
