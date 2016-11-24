@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using TFSPraise.Domains;
+using TFSPraise.Entities;
 
 namespace TFSPraise.Abstract
 {

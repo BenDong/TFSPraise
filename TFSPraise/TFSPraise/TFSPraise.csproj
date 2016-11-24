@@ -170,6 +170,7 @@
     <Compile Include="Concrete\EmployeeRepository.cs" />
     <Compile Include="Concrete\PraiseRepository.cs" />
     <Compile Include="Concrete\TFSPraiseContext.cs" />
+    <Compile Include="Controllers\PraiseController.cs" />
     <Compile Include="Entities\Blog.cs" />
     <Compile Include="Entities\Praise.cs" />
     <Compile Include="Entities\Employee.cs" />
@@ -177,6 +178,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Migrations\201611240634456_InitialCreate.cs" />
+    <Compile Include="Migrations\201611240634456_InitialCreate.Designer.cs">
+      <DependentUpon>201611240634456_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +191,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Views\Praise\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -194,8 +201,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201611240634456_InitialCreate.resx">
+      <DependentUpon>201611240634456_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
