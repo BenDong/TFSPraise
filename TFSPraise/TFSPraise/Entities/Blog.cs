@@ -1,10 +1,12 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
-namespace TFSPraise.Domains
+namespace TFSPraise.Entities
 {
     public class Blog
     {
-        //Foreign key
+        [Key]
+        public int BlogNo { get; set; }
         public string OwnerID { get; set; }
         public string Content { get; set; }
         public DateTime BlogTime { get; set; }

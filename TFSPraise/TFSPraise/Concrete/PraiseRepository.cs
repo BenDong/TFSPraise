@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using TFSPraise.Abstract;
-using TFSPraise.Domains;
+using TFSPraise.Entities;
 
 namespace TFSPraise.Concrete
 {
@@ -12,7 +12,8 @@ namespace TFSPraise.Concrete
         TFSPraiseContext context = new TFSPraiseContext();
         public IEnumerable<Praise> GetPraises()
         {
-            return context.Praises;
+             return context.Praises;
         }
+
     }
 }

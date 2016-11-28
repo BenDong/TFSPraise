@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/TFSPraise/TFSPraise/bin
+/TFSPraise/TFSPraise/obj
+
+/TFSPraise/packages/Modernizr.2.6.2
