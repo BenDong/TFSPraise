@@ -1,20 +1,6 @@
-﻿@{
-    Layout = null;
+﻿@model IEnumerable<TFSPraise.Entities.Praise>
+
+@foreach (var praise in Model)
+{
+  <div>@praise.Content</div>
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
-        @foreach (var item in Model)
-        {
-            <div>@item.Content</div>
-        }
-    </div>
-</body>
-</html>
