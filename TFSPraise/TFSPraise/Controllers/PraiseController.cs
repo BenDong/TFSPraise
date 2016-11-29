@@ -10,9 +10,9 @@ namespace TFSPraise.Controllers
     public class PraiseController : Controller
     {
         private IPraiseRepository praiseRepo;
-        public PraiseController(IPraiseRepository repo)
+        public PraiseController(IPraiseRepository praiseRepository)
         {
-            praiseRepo = repo;
+            praiseRepo = praiseRepository;
         }
         // GET: Praise
         public ActionResult Index()
@@ -20,5 +20,6 @@ namespace TFSPraise.Controllers
             var praises = praiseRepo.GetPraises();
             return View(praises);
         }
+
     }
 }

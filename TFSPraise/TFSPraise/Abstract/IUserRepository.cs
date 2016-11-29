@@ -3,8 +3,8 @@ using TFSPraise.Entities;
 
 namespace TFSPraise.Abstract
 {
-    public interface IEmployeeRepository
+    public interface IUserRepository
     {
-        IEnumerable<Employee> GetEmployees();
+        IEnumerable<User> GetUsers();
     }
 }
