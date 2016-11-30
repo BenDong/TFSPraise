@@ -7,8 +7,8 @@ namespace TFSPraise.Entities
         public string ID { get; set; }
         public bool Resign { get; set; }
 
-        public ICollection<Praise> PublishedPraises { get; set; }
+        public ICollection<Praise> Praises { get; set; }
 
-        public ICollection<Blog> PublishedBlogs { get; set; }
+        public ICollection<Blog> Blogs { get; set; }
     }
 }

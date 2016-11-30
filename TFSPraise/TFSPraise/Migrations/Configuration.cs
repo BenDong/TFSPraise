@@ -16,50 +16,76 @@ namespace TFSPraise.Migrations
 
         protected override void Seed(TFSPraise.Concrete.TFSPraiseContext context)
         {
-            var praises = new List<Praise>
+
+            var users = new List<User>
             {
-                new Praise { Content = "testing content 1", OwnerID = "P0057731", PraiseDate = DateTime.Now, ReceivierID = "P0057739", PraiseID = 1 },
-                new Praise { Content = "testing content 2", OwnerID = "P0057732", PraiseDate = DateTime.Now, ReceivierID = "P0057738", PraiseID = 2 },
-                new Praise { Content = "testing content 3", OwnerID = "P0057733", PraiseDate = DateTime.Now, ReceivierID = "P0057737", PraiseID = 3 },
-                new Praise { Content = "testing content 4", OwnerID = "P0057734", PraiseDate = DateTime.Now, ReceivierID = "P0057736", PraiseID = 4 },
-                new Praise { Content = "testing content 5", OwnerID = "P0057735", PraiseDate = DateTime.Now, ReceivierID = "P0057735", PraiseID = 5 },
-                new Praise { Content = "testing content 6", OwnerID = "P0057736", PraiseDate = DateTime.Now, ReceivierID = "P0057734", PraiseID = 6 },
-                new Praise { Content = "testing content 7", OwnerID = "P0057737", PraiseDate = DateTime.Now, ReceivierID = "P0057733", PraiseID = 7 },
-                new Praise { Content = "testing content 8", OwnerID = "P0057738", PraiseDate = DateTime.Now, ReceivierID = "P0057732", PraiseID = 8 },
-                new Praise { Content = "testing content 9", OwnerID = "P0057739", PraiseDate = DateTime.Now, ReceivierID = "P0057731", PraiseID = 9 }
+                new User { Name = "Ben Dong", ID = "P0057731", Resign = false },
+                new User { Name = "JackTmc", ID = "P0057732", Resign = false },
+                new User { Name = "Hugo Hu", ID = "P0057733", Resign = false },
+                new User { Name = "Alan Wang", ID = "P0057734", Resign = false },
+                new User { Name = "Wil Brady", ID = "P0057735", Resign = false },
+                new User { Name = "Will Lennon", ID = "P0057736", Resign = false },
+                new User { Name = "Jhon Brig", ID = "P0057737", Resign = false },
+                new User { Name = "J Wyman", ID = "P0057738", Resign = false },
+                new User { Name = "Youhana Saad", ID = "P0057739", Resign = false },
             };
-            praises.ForEach(p => context.Praises.Add(p));
+            users.ForEach(u => context.Users.Add(u));
             context.SaveChanges();
 
-            var employees = new List<Employee>
+            var receivers = new List<Receiver>
             {
-                new Employee { Name = "Ben Dong", ID = "P0057731", ResignFlag = false },
-                new Employee { Name = "JackTmc", ID = "P0057732", ResignFlag = false },
-                new Employee { Name = "Hugo Hu", ID = "P0057733", ResignFlag = false },
-                new Employee { Name = "Alan Wang", ID = "P0057734", ResignFlag = false },
-                new Employee { Name = "Wil Brady", ID = "P0057735", ResignFlag = false },
-                new Employee { Name = "Will Lennon", ID = "P0057736", ResignFlag = false },
-                new Employee { Name = "Jhon Brig", ID = "P0057737", ResignFlag = false },
-                new Employee { Name = "J Wyman", ID = "P0057738", ResignFlag = false },
-                new Employee { Name = "Youhana Saad", ID = "P0057739", ResignFlag = false },
+                new Receiver { Name = "Ben Dong", ReceiverID = "P0057731", Resign = false },
+                new Receiver { Name = "JackTmc", ReceiverID = "P0057732", Resign = false },
+                new Receiver { Name = "Hugo Hu", ReceiverID = "P0057733", Resign = false },
+                new Receiver { Name = "Alan Wang", ReceiverID = "P0057734", Resign = false },
+                new Receiver { Name = "Wil Brady", ReceiverID = "P0057735", Resign = false },
+                new Receiver { Name = "Will Lennon", ReceiverID = "P0057736", Resign = false },
+                new Receiver { Name = "Jhon Brig", ReceiverID = "P0057737", Resign = false },
+                new Receiver { Name = "J Wyman", ReceiverID = "P0057738", Resign = false },
+                new Receiver { Name = "Youhana Saad", ReceiverID = "P0057739", Resign = false },
             };
-            employees.ForEach(e => context.Employees.Add(e));
+            receivers.ForEach(r => context.Receivers.Add(r));
             context.SaveChanges();
 
             var blogs = new List<Blog>
             {
-                new Blog { Content = "Blog Content 1", BlogTime = DateTime.Now, OwnerID = "P0057731" },
-                new Blog { Content = "Blog Content 2", BlogTime = DateTime.Now, OwnerID = "P0057732" },
-                new Blog { Content = "Blog Content 3", BlogTime = DateTime.Now, OwnerID = "P0057733" },
-                new Blog { Content = "Blog Content 4", BlogTime = DateTime.Now, OwnerID = "P0057734" },
-                new Blog { Content = "Blog Content 5", BlogTime = DateTime.Now, OwnerID = "P0057735" },
-                new Blog { Content = "Blog Content 6", BlogTime = DateTime.Now, OwnerID = "P0057736" },
-                new Blog { Content = "Blog Content 7", BlogTime = DateTime.Now, OwnerID = "P0057737" },
-                new Blog { Content = "Blog Content 8", BlogTime = DateTime.Now, OwnerID = "P0057738" },
-                new Blog { Content = "Blog Content 9", BlogTime = DateTime.Now, OwnerID = "P0057739" },
+                new Blog { Content = "Blog Content 1", PublishDate = DateTime.Now, Publisher = users.FirstOrDefault() },
+                new Blog { Content = "Blog Content 2", PublishDate = DateTime.Now, Publisher = users.Skip(1).FirstOrDefault() },
+                new Blog { Content = "Blog Content 3", PublishDate = DateTime.Now, Publisher = users.Skip(2).FirstOrDefault() },
+                new Blog { Content = "Blog Content 4", PublishDate = DateTime.Now, Publisher = users.Skip(3).FirstOrDefault() },
+                new Blog { Content = "Blog Content 5", PublishDate = DateTime.Now, Publisher = users.Skip(4).FirstOrDefault() },
+                new Blog { Content = "Blog Content 6", PublishDate = DateTime.Now, Publisher = users.Skip(5).FirstOrDefault() },
+                new Blog { Content = "Blog Content 7", PublishDate = DateTime.Now, Publisher = users.Skip(6).FirstOrDefault() },
+                new Blog { Content = "Blog Content 8", PublishDate = DateTime.Now, Publisher = users.Skip(7).FirstOrDefault() },
+                new Blog { Content = "Blog Content 9", PublishDate = DateTime.Now, Publisher = users.Skip(8).FirstOrDefault() },
             };
             blogs.ForEach(b => context.Blogs.Add(b));
             context.SaveChanges();
+
+            var praises = new List<Praise>
+            {
+                new Praise { PraiseContent = "Praise content 1", OwnerID = "P0057731", PraiseDate = DateTime.Now,
+                    Receivers = receivers },
+                new Praise { PraiseContent = "Praise content 2", OwnerID = "P0057732", PraiseDate = DateTime.Now,
+                    Receivers = receivers.Take(4).ToList() },
+                new Praise { PraiseContent = "Praise content 3", OwnerID = "P0057733", PraiseDate = DateTime.Now,
+                    Receivers = receivers.Take(2).ToList()},
+                new Praise { PraiseContent = "Praise content 4", OwnerID = "P0057734", PraiseDate = DateTime.Now,
+                    Receivers = receivers.Skip(4).Take(3).ToList() },
+                new Praise { PraiseContent = "Praise content 5", OwnerID = "P0057735", PraiseDate = DateTime.Now,
+                    Receivers = receivers.Where(r => r.Name == "JackTmc" || r.Name == "Ben Dong").ToList() },
+                new Praise { PraiseContent = "Praise content 6", OwnerID = "P0057736", PraiseDate = DateTime.Now,
+                    Receivers = receivers.Skip(1).Take(2).ToList() },
+                new Praise { PraiseContent = "Praise content 7", OwnerID = "P0057737", PraiseDate = DateTime.Now,
+                    Receivers = receivers.Skip(2).Take(2).ToList() },
+                new Praise { PraiseContent = "Praise content 8", OwnerID = "P0057738", PraiseDate = DateTime.Now,
+                    Receivers = receivers.Skip(5).Take(2).ToList() },
+                new Praise { PraiseContent = "Praise content 9", OwnerID = "P0057739", PraiseDate = DateTime.Now,
+                    Receivers = receivers.Skip(1).Take(1).ToList()}
+            };
+            praises.ForEach(p => context.Praises.Add(p));
+            context.SaveChanges();
+
         }
     }
 }

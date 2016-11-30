@@ -1,4 +1,7 @@
-﻿@foreach (var praise in Model)
+﻿@using TFSPraise.Entities
+@model IEnumerable<Praise>
+
+@foreach (var praise in Model)
 {
-  <div>@praise.Content</div>
+  <div>@praise.PraiseContent</div>
 }

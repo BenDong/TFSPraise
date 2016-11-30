@@ -199,9 +199,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
-    <Compile Include="Migrations\201611240634456_InitialCreate.cs" />
-    <Compile Include="Migrations\201611240634456_InitialCreate.Designer.cs">
-      <DependentUpon>201611240634456_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201611300626310_init.cs" />
+    <Compile Include="Migrations\201611300626310_init.Designer.cs">
+      <DependentUpon>201611300626310_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -230,8 +230,8 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611240634456_InitialCreate.resx">
-      <DependentUpon>201611240634456_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611300626310_init.resx">
+      <DependentUpon>201611300626310_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
