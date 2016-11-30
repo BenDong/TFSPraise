@@ -17,7 +17,7 @@ namespace TFSPraise.Controllers
         // GET: Praise
         public ActionResult Index()
         {
-            var praises = praiseRepo.GetPraises();
+            var praises = praiseRepo.GetPraises().FirstOrDefault().Receivers;
             return View(praises);
         }
 

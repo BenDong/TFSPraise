@@ -1,7 +1,8 @@
 ﻿@using TFSPraise.Entities
-@model IEnumerable<Praise>
+@model IEnumerable<Receiver>
 
 @foreach (var praise in Model)
 {
-  <div>@praise.PraiseContent</div>
+   
+  <div>@praise.Name</div>
 }

@@ -3,7 +3,7 @@ namespace TFSPraise.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init : DbMigration
+    public partial class initCreate : DbMigration
     {
         public override void Up()
         {
@@ -36,7 +36,6 @@ namespace TFSPraise.Migrations
                     {
                         PraiseID = c.Int(nullable: false, identity: true),
                         OwnerID = c.String(nullable: false, maxLength: 128),
-                        ReceivierID = c.String(),
                         PraiseContent = c.String(),
                         PraiseDate = c.DateTime(nullable: false),
                     })
