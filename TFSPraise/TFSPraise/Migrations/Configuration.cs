@@ -25,9 +25,9 @@ namespace TFSPraise.Migrations
                 new User { Name = "Alan Wang", ID = "P0057734", Resign = false },
                 new User { Name = "Wil Brady", ID = "P0057735", Resign = false },
                 new User { Name = "Will Lennon", ID = "P0057736", Resign = false },
-                new User { Name = "Jhon Brig", ID = "P0057737", Resign = false },
+                new User { Name = "John Brig", ID = "P0057737", Resign = false },
                 new User { Name = "J Wyman", ID = "P0057738", Resign = false },
-                new User { Name = "Youhana Saad", ID = "P0057739", Resign = false },
+                new User { Name = "Youhana Saad", ID = "P0057739", Resign = false }
             };
             users.ForEach(u => context.Users.Add(u));
             context.SaveChanges();
@@ -40,9 +40,9 @@ namespace TFSPraise.Migrations
                 new Receiver { Name = "Alan Wang", ReceiverID = "P0057734", Resign = false },
                 new Receiver { Name = "Wil Brady", ReceiverID = "P0057735", Resign = false },
                 new Receiver { Name = "Will Lennon", ReceiverID = "P0057736", Resign = false },
-                new Receiver { Name = "Jhon Brig", ReceiverID = "P0057737", Resign = false },
+                new Receiver { Name = "John Brig", ReceiverID = "P0057737", Resign = false },
                 new Receiver { Name = "J Wyman", ReceiverID = "P0057738", Resign = false },
-                new Receiver { Name = "Youhana Saad", ReceiverID = "P0057739", Resign = false },
+                new Receiver { Name = "Youhana Saad", ReceiverID = "P0057739", Resign = false }
             };
             receivers.ForEach(r => context.Receivers.Add(r));
             context.SaveChanges();
@@ -57,7 +57,7 @@ namespace TFSPraise.Migrations
                 new Blog { Content = "Blog Content 6", PublishDate = DateTime.Now, Publisher = users.Skip(5).FirstOrDefault() },
                 new Blog { Content = "Blog Content 7", PublishDate = DateTime.Now, Publisher = users.Skip(6).FirstOrDefault() },
                 new Blog { Content = "Blog Content 8", PublishDate = DateTime.Now, Publisher = users.Skip(7).FirstOrDefault() },
-                new Blog { Content = "Blog Content 9", PublishDate = DateTime.Now, Publisher = users.Skip(8).FirstOrDefault() },
+                new Blog { Content = "Blog Content 9", PublishDate = DateTime.Now, Publisher = users.Skip(8).FirstOrDefault() }
             };
             blogs.ForEach(b => context.Blogs.Add(b));
             context.SaveChanges();

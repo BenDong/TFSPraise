@@ -9,7 +9,6 @@ namespace TFSPraise.Entities
         public Praise()
         {
             Receivers = new List<Receiver>();
-            Praiser = new User();
         }
 
         public int PraiseID { get; set; }

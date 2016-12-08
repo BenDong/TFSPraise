@@ -7,10 +7,6 @@ namespace TFSPraise.Entities
 {
     public class Blog
     {
-        public Blog()
-        {
-            Publisher = new User();
-        }
         public string Content { get; set; }
         public int BlogID { get; set; }
         public string PublisherID { get; set; }

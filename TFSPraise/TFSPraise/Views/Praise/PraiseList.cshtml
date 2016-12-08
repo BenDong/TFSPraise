@@ -1,0 +1,22 @@
+﻿@using TFSPraise.Models
+@model PraiseListViewModel
+
+<div>
+    @foreach (var p in Model.PraiseList)
+    {
+        string recevierNameList = string.Empty;
+        var receivers = p.Receivers.ToList();
+        if (receivers.Count > 0)
+        {
+            foreach (var receiver in receivers)
+            {
+                recevierNameList += receiver.Name + ";";
+            }
+        }
+        <div>Thank You: @recevierNameList</div>
+        <div>@p.PraiseContent</div>
+        <div>@p.Praiser.Name  @p.PraiseDate.ToShortDateString()</div>
+
+    }
+</div>
+<div>@Html.PageLinks(Model.PageInfo, n => Url.Action("PraiseList", "Praise", new { page = n }))</div>

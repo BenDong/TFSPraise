@@ -15,8 +15,8 @@ namespace TFSPraise
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Praise", action = "Index", id = UrlParameter.Optional }
+                url: "{controller}/{action}/{page}",
+                defaults: new { controller = "Praise", action = "PraiseList", page = UrlParameter.Optional }
             );
         }
     }
