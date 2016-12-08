@@ -7,12 +7,12 @@ using TFSPraise.Entities;
 
 namespace TFSPraise.Concrete
 {
-    public class EmployeeRepository : IEmployeeRepository
+    public class UserRepository : IUserRepository
     {
         TFSPraiseContext context = new TFSPraiseContext();
-        public IEnumerable<Employee> GetEmployees()
+        public IEnumerable<User> GetUsers()
         {
-            return context.Employees;
+            return context.Users;
         }
     }
 }

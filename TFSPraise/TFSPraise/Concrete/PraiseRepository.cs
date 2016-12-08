@@ -12,7 +12,7 @@ namespace TFSPraise.Concrete
         TFSPraiseContext context = new TFSPraiseContext();
         public IEnumerable<Praise> GetPraises()
         {
-             return context.Praises;
+            return context.Praises;
         }
 
     }

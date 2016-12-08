@@ -179,28 +179,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IBlogRepository.cs" />
-    <Compile Include="Abstract\IEmployeeRepository.cs" />
+    <Compile Include="Abstract\IReceiverRepository.cs" />
+    <Compile Include="Abstract\IUserRepository.cs" />
     <Compile Include="Abstract\IPraiseRepository.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Concrete\BlogRepository.cs" />
-    <Compile Include="Concrete\EmployeeRepository.cs" />
+    <Compile Include="Concrete\ReceiverRepository.cs" />
+    <Compile Include="Concrete\UserRepository.cs" />
     <Compile Include="Concrete\PraiseRepository.cs" />
-    <Compile Include="Concrete\TFSPraiseContext.cs" />
+    <Compile Include="Concrete\Context\TFSPraiseContext.cs" />
     <Compile Include="Controllers\PraiseController.cs" />
     <Compile Include="Entities\Blog.cs" />
     <Compile Include="Entities\Praise.cs" />
-    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\Receiver.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlHelpers\PagingHelper.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
-    <Compile Include="Migrations\201611240634456_InitialCreate.cs" />
-    <Compile Include="Migrations\201611240634456_InitialCreate.Designer.cs">
-      <DependentUpon>201611240634456_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201611300653508_initCreate.cs" />
+    <Compile Include="Migrations\201611300653508_initCreate.Designer.cs">
+      <DependentUpon>201611300653508_initCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\PageInfo.cs" />
+    <Compile Include="Models\PraiseListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -211,10 +217,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\Praise\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Praise\PraiseList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -224,11 +230,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611240634456_InitialCreate.resx">
-      <DependentUpon>201611240634456_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611300653508_initCreate.resx">
+      <DependentUpon>201611300653508_initCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
