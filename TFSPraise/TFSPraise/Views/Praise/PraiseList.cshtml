@@ -1,8 +1,8 @@
 ﻿@using TFSPraise.Models
-@model PraiseListViewModel
+@model ListViewModel<TFSPraise.Entities.Praise>
 
 <div>
-    @foreach (var p in Model.PraiseList)
+    @foreach (var p in Model.List)
     {
         string recevierNameList = string.Empty;
         var receivers = p.Receivers.ToList();

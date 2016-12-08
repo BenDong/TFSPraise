@@ -5,29 +5,30 @@ using System.Web;
 using System.Web.Mvc;
 using TFSPraise.Abstract;
 using TFSPraise.Models;
+using TFSPraise.Entities;
 
 namespace TFSPraise.Controllers
 {
     public class PraiseController : Controller
     {
-        private IPraiseRepository praiseRepo;
+        private IPraiseRepository repo;
         readonly int PageSize = 4;
         public PraiseController(IPraiseRepository praiseRepository)
         {
-            praiseRepo = praiseRepository;
+            repo = praiseRepository;
         }
    
         public ActionResult PraiseList(int page = 1)
         {
-            PraiseListViewModel listViewModel = new PraiseListViewModel
+            ListViewModel<Praise> praiseListViewModel = new ListViewModel<Praise>
             {
-                PraiseList = praiseRepo.GetPraises().Skip(PageSize * (page - 1)).Take(PageSize).ToList(),
+                ItemList = repo.GetPraises().Skip(PageSize * (page - 1)).Take(PageSize).ToList(),
                 PageInfo = new PageInfo {
-                    TotalItems = praiseRepo.GetPraises().ToList().Count,
+                    TotalItems = repo.GetPraises().ToList().Count,
                     CurrentPage = page,
                     ItemsPerPage = PageSize }
             };
-            return View(listViewModel);
+            return View(praiseListViewModel);
         }
     }
 }

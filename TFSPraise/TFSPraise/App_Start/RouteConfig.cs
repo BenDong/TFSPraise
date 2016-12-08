@@ -14,10 +14,18 @@ namespace TFSPraise
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
+               name: "Default",
+               url: "{controller}/{action}"
+           );
+
+            routes.MapRoute(
+                name: "PraiseRoute",
                 url: "{controller}/{action}/{page}",
                 defaults: new { controller = "Praise", action = "PraiseList", page = UrlParameter.Optional }
             );
+
+            routes.MapRoute( "", "{controller}/{action}/{id}/{page}", new { id = UrlParameter.Optional, page = UrlParameter.Optional }
+           );
         }
     }
 }

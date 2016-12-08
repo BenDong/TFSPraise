@@ -6,9 +6,9 @@ using TFSPraise.Entities;
 
 namespace TFSPraise.Models
 {
-    public class PraiseListViewModel
+    public class ListViewModel<T>
     {
-        public IEnumerable<Praise> PraiseList { get; set; }
+        public IEnumerable<T> ItemList { get; set; }
         public PageInfo PageInfo { get; set; }
     }
 }
