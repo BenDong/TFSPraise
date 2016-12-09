@@ -2,7 +2,7 @@
 @model ListViewModel<TFSPraise.Entities.Praise>
 
 <div>
-    @foreach (var p in Model.List)
+    @foreach (var p in Model.ItemList)
     {
         string recevierNameList = string.Empty;
         var receivers = p.Receivers.ToList();
@@ -19,4 +19,4 @@
 
     }
 </div>
-<div>@Html.PageLinks(Model.PageInfo, n => Url.Action("PraiseList", "Praise", new { page = n }))</div>
+<div class="btn-group">@Html.PageLinks(Model.PageInfo, n => Url.Action("PraiseList", "Praise", new { page = n }))</div>

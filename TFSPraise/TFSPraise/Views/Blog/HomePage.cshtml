@@ -1,0 +1,14 @@
+﻿@{
+    Layout = null;
+}
+
+@using TFSPraise.Models
+@model ListViewModel<TFSPraise.Entities.Blog>
+
+@foreach (var blog in Model.ItemList)
+{
+    <div>@blog.Content</div>
+    <div>@blog.Publisher.Name @blog.PublishDate</div>
+}
+
+@Html.PageLinks(Model.PageInfo, n => Url.Action("HomePage", new { ID = ViewBag.BlogerID, Page = n }))
