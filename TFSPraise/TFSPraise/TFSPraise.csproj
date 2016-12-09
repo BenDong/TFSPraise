@@ -154,6 +154,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\blog.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -223,6 +224,7 @@
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Praise\PraiseList.cshtml" />
     <Content Include="Views\Blog\HomePage.cshtml" />
+    <Content Include="Views\Shared\_BlogLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

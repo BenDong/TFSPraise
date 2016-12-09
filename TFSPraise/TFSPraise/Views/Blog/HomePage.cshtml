@@ -1,14 +1,18 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
 }
-
 @using TFSPraise.Models
 @model ListViewModel<TFSPraise.Entities.Blog>
-
 @foreach (var blog in Model.ItemList)
 {
+    <div class="blog-post-title">Sample blog post</div>
+    <p class="blog-post-meta">
+        @blog.PublishDate.ToShortDateString()
+        <a href=@Url.Action("HomePage", "Blog", new { id = blog.PublisherID })>@blog.Publisher.Name</a>
+    </p>
+
     <div>@blog.Content</div>
-    <div>@blog.Publisher.Name @blog.PublishDate</div>
+
 }
 
 @Html.PageLinks(Model.PageInfo, n => Url.Action("HomePage", new { ID = ViewBag.BlogerID, Page = n }))

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/blog.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="blog-masthead">
+        <div class="container">
+            <nav class="blog-nav">
+                <a href=@Url.Action("HomePage", "Blog", new { id = string.Empty }) class="blog-nav-item active">Home</a>
+                <a href=@Url.Action("PraiseList", "Praise") class="blog-nav-item">Praise</a>
+                <a href=@Url.Action("HomePage", "Blog") class="blog-nav-item">About</a>
+            </nav>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="blog-header">
+            <h1 class="blog-title">Praise System Blog</h1>
+            <p class="lead blog-description">This blog is used for praise system</p>
+            <div class="row">
+                <div class="col-sm-8 blog-main">
+                    <div class="blog-post">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
