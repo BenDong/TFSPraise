@@ -8,7 +8,7 @@ namespace TFSPraise.Models
 {
     public class ListViewModel<T>
     {
-        public IEnumerable<T> ItemList { get; set; }
+        public IEnumerable<T> List { get; set; }
         public PageInfo PageInfo { get; set; }
     }
 }

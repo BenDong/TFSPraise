@@ -142,7 +142,8 @@ h6, .h6 {
 }
 .blog-post-title {
   margin-bottom: 5px;
-  font-size: 40px;
+  font-size: 30px;
+  line-height:1;
 }
 .blog-post-meta {
   margin-bottom: 20px;

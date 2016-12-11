@@ -49,15 +49,36 @@ namespace TFSPraise.Migrations
 
             var blogs = new List<Blog>
             {
-                new Blog { Content = "Blog Content 1", PublishDate = DateTime.Now, Publisher = users.FirstOrDefault() },
-                new Blog { Content = "Blog Content 2", PublishDate = DateTime.Now, Publisher = users.Skip(1).FirstOrDefault() },
-                new Blog { Content = "Blog Content 3", PublishDate = DateTime.Now, Publisher = users.Skip(2).FirstOrDefault() },
-                new Blog { Content = "Blog Content 4", PublishDate = DateTime.Now, Publisher = users.Skip(3).FirstOrDefault() },
-                new Blog { Content = "Blog Content 5", PublishDate = DateTime.Now, Publisher = users.Skip(4).FirstOrDefault() },
-                new Blog { Content = "Blog Content 6", PublishDate = DateTime.Now, Publisher = users.Skip(5).FirstOrDefault() },
-                new Blog { Content = "Blog Content 7", PublishDate = DateTime.Now, Publisher = users.Skip(6).FirstOrDefault() },
-                new Blog { Content = "Blog Content 8", PublishDate = DateTime.Now, Publisher = users.Skip(7).FirstOrDefault() },
-                new Blog { Content = "Blog Content 9", PublishDate = DateTime.Now, Publisher = users.Skip(8).FirstOrDefault() }
+                new Blog { Title ="DROP TABLE (Transact-SQL)", Content = "Removes one or more table definitions and all data, indexes, triggers, constraints, and permission specifications for those tables. Any view or stored procedure that references the dropped table must be explicitly dropped by using DROP VIEW or DROP PROCEDURE. To report the dependencies on a table, use sys.dm_sql_referencing_entities.",
+                    PublishDate = DateTime.Now.AddDays(-1),
+                    Publisher = users.FirstOrDefault()
+                },
+                new Blog { Title="How to: Send Data Using the WebRequest Class",
+                    Content = "The following procedure describes the steps used to send data to a server. This procedure is commonly used to post data to a Web page.",
+                    PublishDate = DateTime.Now.AddDays(-3),
+                    Publisher = users.Skip(1).FirstOrDefault()
+                },
+                new Blog { Title = "How to: Request a Web Page and Retrieve the Results as a Stream",
+                    Content = "This example shows how to request a Web page and retrieve the results in a stream./n WebClient myClient = new WebClient(); /n Stream response = myClient.OpenRead(\"http://www.contoso.com/index.htm\");",
+                    PublishDate = DateTime.Now.AddDays(4),
+                    Publisher = users.Skip(2).FirstOrDefault()
+                },
+                new Blog { Title ="Creating Internet Requests", Content = "Applications create WebRequest instances through the WebRequest.Create method. This is a static method that creates a class derived from WebRequest based on the URI scheme passed to it.",
+                    PublishDate = DateTime.Now,
+                    Publisher = users.Skip(3).FirstOrDefault()
+                },
+                new Blog { Title = "Handling Errors",
+                    Content = "The WebRequest and WebResponse classes throw both system exceptions (such as ArgumentException) and Web-specific exceptions (which are WebExceptions thrown by the GetResponse method).",
+                    PublishDate = DateTime.Now.AddHours(4), Publisher = users.Skip(4).FirstOrDefault() },
+                new Blog { Title = "Making Asynchronous Requests", Content = "The System.Net classes use the .NET Framework's standard asynchronous programming model for asynchronous access to Internet resources. The BeginGetResponse and EndGetResponse methods of the WebRequest class start and complete asynchronous requests for an Internet resource.",
+                    PublishDate = DateTime.Now.AddMonths(3), Publisher = users.Skip(5).FirstOrDefault() },
+                new Blog { Title = "Using Streams on the Network", Content = "Network resources are represented in the .NET Framework as streams. By treating streams generically, the .NET Framework offers the following capabilities: ",
+                    PublishDate = DateTime.Now.AddYears(-1), Publisher = users.Skip(6).FirstOrDefault() },
+                new Blog { Title = "A common way to send and receive Web data", Content = " Whatever the actual contents of the file — HTML, XML, or anything else — your application will use Stream.Write and Stream.Read to send and receive data",
+                    PublishDate = DateTime.Now.AddMonths(-1), Publisher = users.Skip(7).FirstOrDefault() },
+                new Blog { Title ="Using Streams on the Network", Content = "This example shows how to retrieve a protocol-specific WebResponse that matches a WebRequest.",
+                    PublishDate = DateTime.Now.AddDays(1),
+                    Publisher = users.Skip(8).FirstOrDefault() }
             };
             blogs.ForEach(b => context.Blogs.Add(b));
             context.SaveChanges();

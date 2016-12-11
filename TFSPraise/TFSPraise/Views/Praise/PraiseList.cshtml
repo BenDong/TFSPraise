@@ -2,7 +2,7 @@
 @model ListViewModel<TFSPraise.Entities.Praise>
 
 <div>
-    @foreach (var p in Model.ItemList)
+    @foreach (var p in Model.List)
     {
         string recevierNameList = string.Empty;
         var receivers = p.Receivers.ToList();

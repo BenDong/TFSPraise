@@ -202,9 +202,9 @@
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelper.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
-    <Compile Include="Migrations\201611300653508_initCreate.cs" />
-    <Compile Include="Migrations\201611300653508_initCreate.Designer.cs">
-      <DependentUpon>201611300653508_initCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201612100534325_init.cs" />
+    <Compile Include="Migrations\201612100534325_init.Designer.cs">
+      <DependentUpon>201612100534325_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\PageInfo.cs" />
@@ -236,8 +236,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611300653508_initCreate.resx">
-      <DependentUpon>201611300653508_initCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612100534325_init.resx">
+      <DependentUpon>201612100534325_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

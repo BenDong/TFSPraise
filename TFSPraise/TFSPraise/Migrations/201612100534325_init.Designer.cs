@@ -7,13 +7,13 @@ namespace TFSPraise.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class initCreate : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611300653508_initCreate"; }
+            get { return "201612100534325_init"; }
         }
         
         string IMigrationMetadata.Source

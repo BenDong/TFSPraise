@@ -22,7 +22,7 @@ namespace TFSPraise.Controllers
             IEnumerable<Blog> blogs = string.IsNullOrEmpty(id) ? repo.GetBlogs() : repo.GetBlogs().Where(b => b.PublisherID == id);
             ListViewModel<Blog> blogListViewModel = new ListViewModel<Blog>
             {
-                ItemList = blogs.Skip(PageSize * (page - 1)).Take(PageSize).ToList(),
+                List = blogs.Skip(PageSize * (page - 1)).Take(PageSize).ToList(),
                 PageInfo = new PageInfo
                 {
                     TotalItems = blogs.ToList().Count,

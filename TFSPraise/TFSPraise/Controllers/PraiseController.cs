@@ -22,7 +22,7 @@ namespace TFSPraise.Controllers
         {
             ListViewModel<Praise> praiseListViewModel = new ListViewModel<Praise>
             {
-                ItemList = repo.GetPraises().Skip(PageSize * (page - 1)).Take(PageSize).ToList(),
+                List = repo.GetPraises().Skip(PageSize * (page - 1)).Take(PageSize).ToList(),
                 PageInfo = new PageInfo {
                     TotalItems = repo.GetPraises().ToList().Count,
                     CurrentPage = page,
