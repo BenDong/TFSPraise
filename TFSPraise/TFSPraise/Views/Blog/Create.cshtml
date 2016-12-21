@@ -10,6 +10,6 @@
     <p>Title: @Html.TextBoxFor(x => x.Title)</p>
     <p>Blog Content</p>
     <p> @Html.TextAreaFor(x=>x.Content)</p>
-    @Html.SubmitButton("Submit", "Save", new { @Class = "btn btn-default" }); @Html.SubmitButton("Button","Cancel", new { @Class = "btn btn-default" });
+    @Html.InputEditor("Submit", "Save", new { @Class = "btn btn-default" }); @Html.InputEditor("Button","Cancel", new { @Class = "btn btn-default" });
 }
 

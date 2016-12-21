@@ -6,5 +6,6 @@ namespace TFSPraise.Abstract
     public interface IUserRepository
     {
         IEnumerable<User> GetUsers();
+        User GetCurrentUser();
     }
 }

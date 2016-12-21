@@ -201,7 +201,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelper.cs" />
-    <Compile Include="HtmlHelpers\SubmitHelper.cs" />
+    <Compile Include="HtmlHelpers\InputHelper.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Migrations\201612100534325_init.cs" />
     <Compile Include="Migrations\201612100534325_init.Designer.cs">

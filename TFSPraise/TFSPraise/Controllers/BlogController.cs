@@ -11,15 +11,17 @@ namespace TFSPraise.Controllers
 {
     public class BlogController : Controller
     {
-        private IBlogRepository repo;
+        private IBlogRepository blogRepo;
+        private IUserRepository userRepo;
         readonly int PageSize = 4;
-        public BlogController(IBlogRepository repoParam)
+        public BlogController(IBlogRepository blogRepoParam, IUserRepository userRepoParam)
         {
-            repo = repoParam;
+            blogRepo = blogRepoParam;
+            userRepo = userRepoParam;
         }
         public ActionResult Home(string id, int page = 1)
         {
-            IEnumerable<Blog> blogs = string.IsNullOrEmpty(id) ? repo.GetBlogs() : repo.GetBlogs().Where(b => b.PublisherID == id);
+            IEnumerable<Blog> blogs = string.IsNullOrEmpty(id) ? blogRepo.GetBlogs() : blogRepo.GetBlogs().Where(b => b.PublisherID == id);
             blogs = blogs.Reverse();
             ListViewModel<Blog> blogListViewModel = new ListViewModel<Blog>
             {
@@ -35,6 +37,7 @@ namespace TFSPraise.Controllers
 
             return View(blogListViewModel);
         }
+
         [HttpGet]
         public ActionResult Create()
         {
@@ -44,9 +47,9 @@ namespace TFSPraise.Controllers
         [HttpPost]
         public ActionResult Create(Blog blog)
         {
-            blog.PublisherID = "P0057734";
+            blog.PublisherID = userRepo.GetCurrentUser().ID;
             blog.PublishDate = DateTime.Now;
-            repo.CreateBlog(blog);
+            blogRepo.CreateBlog(blog);
 
             return RedirectToAction("Home");
         }

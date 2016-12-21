@@ -7,9 +7,9 @@ using System.Web.Mvc;
 using TFSPraise.Models;
 namespace TFSPraise.HtmlHelpers
 {
-    public static class SubmitHelper
+    public static class InputHelper
     {
-        public static MvcHtmlString SubmitButton(this HtmlHelper helper, string inputType, string buttonText, object htmlAttributes = null)
+        public static MvcHtmlString InputEditor(this HtmlHelper helper, string inputType, string buttonText, object htmlAttributes = null)
         {
             StringBuilder html = new StringBuilder();
             html.AppendFormat("<input type = '{0}' value = '{1}' ", inputType, buttonText);
