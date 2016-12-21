@@ -12,16 +12,16 @@ namespace TFSPraise.HtmlHelpers
     {
         public static MvcHtmlString PageLinks(this HtmlHelper helper, PageInfo pageInfo, Func<int, string> pageUrl)
         {
-            StringBuilder tagResult = new StringBuilder();
+            StringBuilder html = new StringBuilder();
 
             for (int p = 1; p <= pageInfo.TotalPages; p++)
             {
                 TagBuilder linkTag = new TagBuilder("a");
                 linkTag.SetInnerText(p.ToString());
                 linkTag.MergeAttribute("href", pageUrl(p));
-                tagResult.Append(linkTag.ToString());
+                html.Append(linkTag.ToString());
             }
-            return MvcHtmlString.Create(tagResult.ToString());
+            return MvcHtmlString.Create(html.ToString());
         }
     }
 }

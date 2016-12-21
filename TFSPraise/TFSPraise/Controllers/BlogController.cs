@@ -17,9 +17,10 @@ namespace TFSPraise.Controllers
         {
             repo = repoParam;
         }
-        public ActionResult HomePage(string id, int page = 0)
+        public ActionResult Home(string id, int page = 1)
         {
             IEnumerable<Blog> blogs = string.IsNullOrEmpty(id) ? repo.GetBlogs() : repo.GetBlogs().Where(b => b.PublisherID == id);
+            blogs = blogs.Reverse();
             ListViewModel<Blog> blogListViewModel = new ListViewModel<Blog>
             {
                 List = blogs.Skip(PageSize * (page - 1)).Take(PageSize).ToList(),
@@ -31,8 +32,24 @@ namespace TFSPraise.Controllers
                 }
             };
             ViewBag.BlogerID = id;
-  
+
             return View(blogListViewModel);
         }
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Blog blog)
+        {
+            blog.PublisherID = "P0057734";
+            blog.PublishDate = DateTime.Now;
+            repo.CreateBlog(blog);
+
+            return RedirectToAction("Home");
+        }
+
     }
 }

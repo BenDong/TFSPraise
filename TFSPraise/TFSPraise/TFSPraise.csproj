@@ -201,6 +201,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelper.cs" />
+    <Compile Include="HtmlHelpers\SubmitHelper.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Migrations\201612100534325_init.cs" />
     <Compile Include="Migrations\201612100534325_init.Designer.cs">
@@ -223,8 +224,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Praise\PraiseList.cshtml" />
-    <Content Include="Views\Blog\HomePage.cshtml" />
+    <Content Include="Views\Blog\Home.cshtml" />
     <Content Include="Views\Shared\_BlogLayout.cshtml" />
+    <Content Include="Views\Blog\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

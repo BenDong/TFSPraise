@@ -6,5 +6,6 @@ namespace TFSPraise.Abstract
     public interface IBlogRepository
     {
         IEnumerable<Blog> GetBlogs();
+        void CreateBlog(Blog blog);
     }
 }

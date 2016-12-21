@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "CreateBlog";
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+}
+
+@model TFSPraise.Entities.Blog
+
+@using (Html.BeginForm("Create", "Blog", FormMethod.Post))
+{
+    <p>Title: @Html.TextBoxFor(x => x.Title)</p>
+    <p>Blog Content</p>
+    <p> @Html.TextAreaFor(x=>x.Content)</p>
+    @Html.SubmitButton("Submit", "Save", new { @Class = "btn btn-default" }); @Html.SubmitButton("Button","Cancel", new { @Class = "btn btn-default" });
+}
+

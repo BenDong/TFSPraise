@@ -10,13 +10,13 @@
             <h2 class="blog-post-title">@blog.Title</h2>
             <p class="blog-post-meta">
                 @blog.PublishDate.ToShortDateString()
-                <a href=@Url.Action("HomePage", "Blog", new { id = blog.PublisherID, Page = 0 })>@blog.Publisher.Name</a>
+                <a href=@Url.Action("Home", "Blog", new { id = blog.PublisherID, Page = 1 })>@blog.Publisher.Name</a>
             </p>
             <div>@blog.Content</div>
         </div>
     }
 
-    @Html.PageLinks(Model.PageInfo, n => Url.Action("HomePage", new { ID = ViewBag.BlogerID, Page = n }))
+    @Html.PageLinks(Model.PageInfo, n => Url.Action("Home", new { ID = ViewBag.BlogerID, Page = n }))
 </div>
 <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
     <div class="sidebar-module sidebar-module-inset">

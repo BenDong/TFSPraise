@@ -14,5 +14,10 @@ namespace TFSPraise.Concrete
         {
             return context.Blogs;
         }
+        public void CreateBlog(Blog blog)
+        {
+            context.Blogs.Add(blog);
+            context.SaveChanges();
+        }
     }
 }

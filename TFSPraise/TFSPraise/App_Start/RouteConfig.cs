@@ -25,7 +25,6 @@ namespace TFSPraise
                 url: "{controller}/{action}/{page}",
                 defaults: new { controller = "Praise", action = "PraiseList", page = UrlParameter.Optional }
             );
-
         }
     }
 }
