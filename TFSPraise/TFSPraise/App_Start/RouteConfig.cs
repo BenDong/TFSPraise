@@ -16,7 +16,7 @@ namespace TFSPraise
 
             routes.MapRoute(
                 "",
-                "{controller}/{action}/{page}/{id}",
+                "{controller}/{action}/{page}/{*id}",
                 new { id = UrlParameter.Optional, page = UrlParameter.Optional }
            );
 

@@ -7,22 +7,27 @@ using TFSPraise.Abstract;
 using TFSPraise.Entities;
 using TFSPraise.Models;
 
+
+
 namespace TFSPraise.Controllers
 {
     public class BlogController : Controller
     {
         private IBlogRepository blogRepo;
         private IUserRepository userRepo;
+        User currentUser;
         readonly int PageSize = 4;
         public BlogController(IBlogRepository blogRepoParam, IUserRepository userRepoParam)
         {
             blogRepo = blogRepoParam;
             userRepo = userRepoParam;
+            currentUser = userRepo.GetCurrentUser();
         }
         public ActionResult Home(string id, int page = 1)
         {
-            IEnumerable<Blog> blogs = string.IsNullOrEmpty(id) ? blogRepo.GetBlogs() : blogRepo.GetBlogs().Where(b => b.PublisherID == id);
+            IEnumerable<Blog> blogs = string.IsNullOrEmpty(id) ? blogRepo.GetBlogs() : blogRepo.GetBlogs().Where(b => b.PublisherID.Replace("\\", "/") == id);
             blogs = blogs.Reverse();
+          
             ListViewModel<Blog> blogListViewModel = new ListViewModel<Blog>
             {
                 List = blogs.Skip(PageSize * (page - 1)).Take(PageSize).ToList(),
@@ -47,11 +52,11 @@ namespace TFSPraise.Controllers
         [HttpPost]
         public ActionResult Create(Blog blog)
         {
-            blog.PublisherID = userRepo.GetCurrentUser().ID;
+            blog.PublisherID = currentUser.ID;
             blog.PublishDate = DateTime.Now;
             blogRepo.CreateBlog(blog);
 
-            return RedirectToAction("Home");
+            return RedirectToAction("Home", new { id = currentUser.ID, page = 1 });
         }
 
     }

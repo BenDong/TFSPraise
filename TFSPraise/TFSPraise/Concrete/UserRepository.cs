@@ -20,15 +20,18 @@ namespace TFSPraise.Concrete
         {
             WindowsIdentity identity = WindowsIdentity.GetCurrent();
             User currentUser = context.Users.Where(x => x.ID == identity.Name).FirstOrDefault();
-            //if (currentUser == null)
-            //{
-            //    currentUser = new User { ID = identity.Name, Name = "Ben Dong" };
-            //    context.Users.Add(currentUser);
-            //    context.SaveChanges();
-            //}
-
+            if (currentUser == null)
+            {
+                currentUser = new User { ID = identity.Name, Name = "Ben Dong" };
+                AddUser(currentUser);
+            }
             return currentUser;
         }
 
+        public void AddUser(User user)
+        {
+            context.Users.Add(user);
+            context.SaveChanges();
+        }
     }
 }
