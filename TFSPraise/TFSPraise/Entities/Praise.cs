@@ -11,11 +11,11 @@ namespace TFSPraise.Entities
             Receivers = new List<Receiver>();
         }
 
-        public int PraiseID { get; set; }
-        public string OwnerID { get; set; }
-        public string PraiseContent { get; set; }
-        public DateTime PraiseDate { get; set; }
-        public virtual User Praiser { get; set; }
+        public int ID { get; set; }
+        public int OwnerID { get; set; }
+        public string Content { get; set; }
+        public DateTime Date { get; set; }
+        public virtual UserProfile Praiser { get; set; }
         public virtual ICollection<Receiver> Receivers { get; set; }
     }
 }

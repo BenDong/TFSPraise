@@ -9,18 +9,18 @@ using System.Data.Entity;
 
 namespace TFSPraise.Concrete
 {
-    public class UserRepository : RepositoryBase<User>
+    public class UserRepository : RepositoryBase<UserProfile>
     {
-        public User GetCurrentUser()
+        public UserProfile GetCurrentUser()
         {
             WindowsIdentity identity = WindowsIdentity.GetCurrent();
-            User currentUser = ((TFSPraiseContext)Context).Users.Where(x => x.ID == identity.Name).FirstOrDefault();
-            if (currentUser == null)
+            UserProfile currentUserProfile = ((TFSPraiseContext)Context).UserProfiles.Where(u => u.Identity.Name == identity.Name).FirstOrDefault();
+            if (currentUserProfile == null)
             {
-                currentUser = new User { ID = identity.Name, Name = "Ben Dong" };
-                Add(currentUser);
+                currentUserProfile = new UserProfile { Identity = new Identity { Name = identity.Name, DispalyName = "Ben Dong" }, Resign =  false };
+                Add(currentUserProfile);
             }
-            return currentUser;
+            return currentUserProfile;
         }
     }
 }

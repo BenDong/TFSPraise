@@ -18,9 +18,9 @@ namespace TFSPraise.Controllers
         {
             blogRepo = _blogRepo;
         }
-        public ActionResult Home(string id, int page = 1)
+        public ActionResult Home(int id = 0, int page = 1)
         {
-            IEnumerable<Blog> blogs = string.IsNullOrEmpty(id) ? blogRepo.GetAll() : blogRepo.GetAll().Where(b => b.PublisherID.Replace("\\", "/") == id);
+            IEnumerable<Blog> blogs = id == 0 ? blogRepo.GetAll() : blogRepo.GetAll().Where(b => b.Publisher.Identity.IdentityID == id);
             blogs = blogs.Reverse();
           
             ListViewModel<Blog> blogListViewModel = new ListViewModel<Blog>
@@ -35,6 +35,7 @@ namespace TFSPraise.Controllers
             };
             ViewBag.BlogerID = id;
 
+            var model = blogListViewModel;
             return View(blogListViewModel);
         }
 
@@ -49,7 +50,7 @@ namespace TFSPraise.Controllers
         {
             var currentUser = new TFSPraise.Concrete.UserRepository().GetCurrentUser();
             blog.PublisherID = currentUser.ID;
-            blog.PublishDate = DateTime.Now;
+            blog.Date = DateTime.Now;
             blogRepo.Add(blog);
 
             return RedirectToAction("Home", new { id = currentUser.ID, page = 1 });

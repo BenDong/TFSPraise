@@ -11,55 +11,67 @@ namespace TFSPraise.Migrations
                 "dbo.Blogs",
                 c => new
                     {
-                        BlogID = c.Int(nullable: false, identity: true),
+                        ID = c.Int(nullable: false, identity: true),
                         Title = c.String(),
                         Content = c.String(),
-                        PublisherID = c.String(nullable: false, maxLength: 128),
-                        PublishDate = c.DateTime(nullable: false),
+                        PublisherID = c.Int(nullable: false),
+                        Date = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.BlogID)
-                .ForeignKey("dbo.Users", t => t.PublisherID, cascadeDelete: true)
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.UserProfiles", t => t.PublisherID, cascadeDelete: true)
                 .Index(t => t.PublisherID);
             
             CreateTable(
-                "dbo.Users",
+                "dbo.UserProfiles",
                 c => new
                     {
-                        ID = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(),
+                        ID = c.Int(nullable: false, identity: true),
                         Resign = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             
             CreateTable(
+                "dbo.Identities",
+                c => new
+                    {
+                        IdentityID = c.Int(nullable: false),
+                        Name = c.String(),
+                        DispalyName = c.String(),
+                    })
+                .PrimaryKey(t => t.IdentityID)
+                .ForeignKey("dbo.UserProfiles", t => t.IdentityID, cascadeDelete: true)
+                .Index(t => t.IdentityID);
+            
+            CreateTable(
                 "dbo.Praises",
                 c => new
                     {
-                        PraiseID = c.Int(nullable: false, identity: true),
-                        OwnerID = c.String(nullable: false, maxLength: 128),
-                        PraiseContent = c.String(),
-                        PraiseDate = c.DateTime(nullable: false),
+                        ID = c.Int(nullable: false, identity: true),
+                        OwnerID = c.Int(nullable: false),
+                        Content = c.String(),
+                        Date = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.PraiseID)
-                .ForeignKey("dbo.Users", t => t.OwnerID, cascadeDelete: true)
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.UserProfiles", t => t.OwnerID, cascadeDelete: true)
                 .Index(t => t.OwnerID);
             
             CreateTable(
                 "dbo.Receivers",
                 c => new
                     {
-                        ReceiverID = c.String(nullable: false, maxLength: 128),
+                        ID = c.Int(nullable: false, identity: true),
                         Name = c.String(),
+                        DisplayName = c.String(),
                         Resign = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.ReceiverID);
+                .PrimaryKey(t => t.ID);
             
             CreateTable(
                 "dbo.ReceiverPraises",
                 c => new
                     {
                         PraiseID = c.Int(nullable: false),
-                        ReceiverID = c.String(nullable: false, maxLength: 128),
+                        ReceiverID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.PraiseID, t.ReceiverID })
                 .ForeignKey("dbo.Praises", t => t.PraiseID, cascadeDelete: true)
@@ -71,18 +83,21 @@ namespace TFSPraise.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Praises", "OwnerID", "dbo.Users");
+            DropForeignKey("dbo.Praises", "OwnerID", "dbo.UserProfiles");
             DropForeignKey("dbo.ReceiverPraises", "ReceiverID", "dbo.Receivers");
             DropForeignKey("dbo.ReceiverPraises", "PraiseID", "dbo.Praises");
-            DropForeignKey("dbo.Blogs", "PublisherID", "dbo.Users");
+            DropForeignKey("dbo.Identities", "IdentityID", "dbo.UserProfiles");
+            DropForeignKey("dbo.Blogs", "PublisherID", "dbo.UserProfiles");
             DropIndex("dbo.ReceiverPraises", new[] { "ReceiverID" });
             DropIndex("dbo.ReceiverPraises", new[] { "PraiseID" });
             DropIndex("dbo.Praises", new[] { "OwnerID" });
+            DropIndex("dbo.Identities", new[] { "IdentityID" });
             DropIndex("dbo.Blogs", new[] { "PublisherID" });
             DropTable("dbo.ReceiverPraises");
             DropTable("dbo.Receivers");
             DropTable("dbo.Praises");
-            DropTable("dbo.Users");
+            DropTable("dbo.Identities");
+            DropTable("dbo.UserProfiles");
             DropTable("dbo.Blogs");
         }
     }

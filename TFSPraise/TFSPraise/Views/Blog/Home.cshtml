@@ -9,8 +9,8 @@
         <div class="blog-post">
             <h2 class="blog-post-title">@blog.Title</h2>
             <p class="blog-post-meta">
-                @blog.PublishDate.ToShortDateString()
-                <a href=@Url.Action("Home", "Blog", new { id = blog.PublisherID, Page = 1 })>@blog.Publisher.Name</a>
+                @blog.Date.ToShortDateString()
+                <a href=@Url.Action("Home", "Blog", new { id = blog.PublisherID, Page = 1 })>@blog.Publisher.Identity.Name</a>
             </p>
             <div>@blog.Content</div>
         </div>

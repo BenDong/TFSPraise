@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TFSPraise.Entities
 {
@@ -9,7 +10,8 @@ namespace TFSPraise.Entities
             Praises = new List<Praise>();
         }
         public string Name { get; set; }
-        public string ReceiverID { get; set; }
+        public string DisplayName { get; set; }
+        public int ID { get; set; }
         public bool Resign { get; set; }
         public virtual ICollection<Praise> Praises { get; set; }
     }
