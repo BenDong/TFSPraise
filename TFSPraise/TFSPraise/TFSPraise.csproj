@@ -179,15 +179,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IBlogRepository.cs" />
-    <Compile Include="Abstract\IReceiverRepository.cs" />
-    <Compile Include="Abstract\IUserRepository.cs" />
-    <Compile Include="Abstract\IPraiseRepository.cs" />
+    <Compile Include="Abstract\RepositoryBase.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Concrete\BlogRepository.cs" />
-    <Compile Include="Concrete\ReceiverRepository.cs" />
     <Compile Include="Concrete\UserRepository.cs" />
     <Compile Include="Concrete\PraiseRepository.cs" />
     <Compile Include="Concrete\Context\TFSPraiseContext.cs" />

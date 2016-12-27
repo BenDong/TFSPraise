@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using TFSPraise.Entities;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TFSPraise.Concrete
 {
@@ -13,11 +9,11 @@ namespace TFSPraise.Concrete
         public TFSPraiseContext() : base("TFSPraiseContext")
         {
         }
+
         public DbSet<Praise> Praises { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Receiver> Receivers { get; set; }
-
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

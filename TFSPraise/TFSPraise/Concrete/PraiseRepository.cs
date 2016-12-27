@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using TFSPraise.Abstract;
@@ -7,13 +8,8 @@ using TFSPraise.Entities;
 
 namespace TFSPraise.Concrete
 {
-    public class PraiseRepository : IPraiseRepository
+    public class PraiseRepository : RepositoryBase<Praise>
     {
-        TFSPraiseContext context = new TFSPraiseContext();
-        public IEnumerable<Praise> GetPraises()
-        {
-            return context.Praises;
-        }
-
+      
     }
 }

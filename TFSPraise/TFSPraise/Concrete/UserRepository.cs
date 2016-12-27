@@ -5,33 +5,22 @@ using System.Web;
 using TFSPraise.Abstract;
 using TFSPraise.Entities;
 using System.Security.Principal;
+using System.Data.Entity;
 
 namespace TFSPraise.Concrete
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : RepositoryBase<User>
     {
-        TFSPraiseContext context = new TFSPraiseContext();
-        public IEnumerable<User> GetUsers()
-        {
-            return context.Users;
-        }
-
         public User GetCurrentUser()
         {
             WindowsIdentity identity = WindowsIdentity.GetCurrent();
-            User currentUser = context.Users.Where(x => x.ID == identity.Name).FirstOrDefault();
+            User currentUser = ((TFSPraiseContext)Context).Users.Where(x => x.ID == identity.Name).FirstOrDefault();
             if (currentUser == null)
             {
                 currentUser = new User { ID = identity.Name, Name = "Ben Dong" };
-                AddUser(currentUser);
+                Add(currentUser);
             }
             return currentUser;
-        }
-
-        public void AddUser(User user)
-        {
-            context.Users.Add(user);
-            context.SaveChanges();
         }
     }
 }

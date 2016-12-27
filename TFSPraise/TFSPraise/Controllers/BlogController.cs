@@ -7,25 +7,20 @@ using TFSPraise.Abstract;
 using TFSPraise.Entities;
 using TFSPraise.Models;
 
-
-
 namespace TFSPraise.Controllers
 {
     public class BlogController : Controller
     {
-        private IBlogRepository blogRepo;
-        private IUserRepository userRepo;
-        User currentUser;
+        private RepositoryBase<Blog> blogRepo;
         readonly int PageSize = 4;
-        public BlogController(IBlogRepository blogRepoParam, IUserRepository userRepoParam)
+
+        public BlogController(RepositoryBase<Blog> _blogRepo)
         {
-            blogRepo = blogRepoParam;
-            userRepo = userRepoParam;
-            currentUser = userRepo.GetCurrentUser();
+            blogRepo = _blogRepo;
         }
         public ActionResult Home(string id, int page = 1)
         {
-            IEnumerable<Blog> blogs = string.IsNullOrEmpty(id) ? blogRepo.GetBlogs() : blogRepo.GetBlogs().Where(b => b.PublisherID.Replace("\\", "/") == id);
+            IEnumerable<Blog> blogs = string.IsNullOrEmpty(id) ? blogRepo.GetAll() : blogRepo.GetAll().Where(b => b.PublisherID.Replace("\\", "/") == id);
             blogs = blogs.Reverse();
           
             ListViewModel<Blog> blogListViewModel = new ListViewModel<Blog>
@@ -52,9 +47,10 @@ namespace TFSPraise.Controllers
         [HttpPost]
         public ActionResult Create(Blog blog)
         {
+            var currentUser = new TFSPraise.Concrete.UserRepository().GetCurrentUser();
             blog.PublisherID = currentUser.ID;
             blog.PublishDate = DateTime.Now;
-            blogRepo.CreateBlog(blog);
+            blogRepo.Add(blog);
 
             return RedirectToAction("Home", new { id = currentUser.ID, page = 1 });
         }

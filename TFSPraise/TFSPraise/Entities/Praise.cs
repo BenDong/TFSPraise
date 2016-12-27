@@ -15,9 +15,7 @@ namespace TFSPraise.Entities
         public string OwnerID { get; set; }
         public string PraiseContent { get; set; }
         public DateTime PraiseDate { get; set; }
-
-        public virtual ICollection<Receiver> Receivers { get; set; }
-
         public virtual User Praiser { get; set; }
+        public virtual ICollection<Receiver> Receivers { get; set; }
     }
 }

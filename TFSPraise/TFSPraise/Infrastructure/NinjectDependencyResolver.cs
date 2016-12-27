@@ -6,6 +6,8 @@ using Ninject;
 using System.Web.Mvc;
 using TFSPraise.Abstract;
 using TFSPraise.Concrete;
+using TFSPraise.Entities;
+using System.Data.Entity;
 
 namespace TFSPraise.Infrastructure
 {
@@ -30,10 +32,10 @@ namespace TFSPraise.Infrastructure
 
         private void AddBindings()
         {
-            kernel.Bind<IPraiseRepository>().To<PraiseRepository>();
-            kernel.Bind<IBlogRepository>().To<BlogRepository>();
-            kernel.Bind<IUserRepository>().To<UserRepository>();
-            kernel.Bind<IReceiverRepository>().To<ReceiverRepository>();
+            kernel.Bind<RepositoryBase<Blog>>().To<BlogRepository>();
+            kernel.Bind<RepositoryBase<Praise>>().To<PraiseRepository>();
+            kernel.Bind<RepositoryBase<User>>().To<UserRepository>();
+            kernel.Bind<DbContext>().To<TFSPraiseContext>();
         }
     }
 }

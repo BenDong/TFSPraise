@@ -11,7 +11,6 @@ namespace TFSPraise.Entities
         public string Name { get; set; }
         public string ReceiverID { get; set; }
         public bool Resign { get; set; }
-
         public virtual ICollection<Praise> Praises { get; set; }
     }
 }
