@@ -189,6 +189,7 @@
     <Compile Include="Concrete\Context\TFSPraiseContext.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\PraiseController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Entities\Blog.cs" />
     <Compile Include="Entities\Identity.cs" />
     <Compile Include="Entities\Praise.cs" />
@@ -224,6 +225,7 @@
     <Content Include="Views\Blog\Home.cshtml" />
     <Content Include="Views\Shared\_BlogLayout.cshtml" />
     <Content Include="Views\Blog\Create.cshtml" />
+    <Content Include="Views\User\CurrentUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

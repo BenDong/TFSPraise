@@ -14,10 +14,14 @@ namespace TFSPraise.Concrete
         public UserProfile GetCurrentUser()
         {
             WindowsIdentity identity = WindowsIdentity.GetCurrent();
-            UserProfile currentUserProfile = ((TFSPraiseContext)Context).UserProfiles.Where(u => u.Identity.Name == identity.Name).FirstOrDefault();
+            UserProfile currentUserProfile = Get(u => u.Identity.Name == identity.Name).FirstOrDefault();
             if (currentUserProfile == null)
             {
-                currentUserProfile = new UserProfile { Identity = new Identity { Name = identity.Name, DispalyName = "Ben Dong" }, Resign =  false };
+                currentUserProfile = new UserProfile {
+                    Identity = new Identity { Name = identity.Name },
+                    Resign =  false
+                };
+
                 Add(currentUserProfile);
             }
             return currentUserProfile;

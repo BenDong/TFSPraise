@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using TFSPraise.Abstract;
 using TFSPraise.Entities;
 using TFSPraise.Models;
+using TFSPraise.Concrete;
 
 namespace TFSPraise.Controllers
 {
@@ -18,6 +19,7 @@ namespace TFSPraise.Controllers
         {
             blogRepo = _blogRepo;
         }
+
         public ActionResult Home(int id = 0, int page = 1)
         {
             IEnumerable<Blog> blogs = id == 0 ? blogRepo.GetAll() : blogRepo.GetAll().Where(b => b.Publisher.Identity.IdentityID == id);
@@ -35,7 +37,6 @@ namespace TFSPraise.Controllers
             };
             ViewBag.BlogerID = id;
 
-            var model = blogListViewModel;
             return View(blogListViewModel);
         }
 
@@ -48,7 +49,7 @@ namespace TFSPraise.Controllers
         [HttpPost]
         public ActionResult Create(Blog blog)
         {
-            var currentUser = new TFSPraise.Concrete.UserRepository().GetCurrentUser();
+            var currentUser = new UserRepository().GetCurrentUser();
             blog.PublisherID = currentUser.ID;
             blog.Date = DateTime.Now;
             blogRepo.Add(blog);

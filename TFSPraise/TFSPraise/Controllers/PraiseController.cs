@@ -13,6 +13,7 @@ namespace TFSPraise.Controllers
     {
         private RepositoryBase<Praise> praiseRepo;
         readonly int PageSize = 4;
+
         public PraiseController(RepositoryBase<Praise> _praiseRepo)
         {
             praiseRepo = _praiseRepo;
