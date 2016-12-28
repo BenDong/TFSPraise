@@ -12,17 +12,21 @@ namespace TFSPraise.Controllers
     public class UserController : Controller
     {
         RepositoryBase<UserProfile> userRepo;
-        UserProfile CurrentUserProfile;
 
         public UserController(RepositoryBase<UserProfile> _userRepo)
         {
             userRepo = _userRepo;
-            CurrentUserProfile = userRepo.Contravariant<UserRepository>().GetCurrentUser();
         }
 
         [ChildActionOnly]
         public ActionResult CurrentUser()
         {
+            UserProfile CurrentUserProfile = userRepo.Contravariant<UserRepository>().GetCurrentUser();
+            if(CurrentUserProfile == null)
+            {
+                return HttpNotFound("Not found current user");
+            }
+
             return PartialView(CurrentUserProfile);
         }
     }
