@@ -22,7 +22,7 @@ namespace TFSPraise.Controllers
 
         public ActionResult Home(int id = 0, int page = 1)
         {
-            IEnumerable<Blog> blogs = id == 0 ? blogRepo.GetAll() : blogRepo.GetAll().Where(b => b.Publisher.Identity.IdentityID == id);
+            IEnumerable<Blog> blogs = id == 0 ? blogRepo.GetAll() : blogRepo.GetAll().Where(b => b.Poster.Identity.IdentityID == id);
             blogs = blogs.Reverse();
           
             ListViewModel<Blog> blogListViewModel = new ListViewModel<Blog>
@@ -50,11 +50,11 @@ namespace TFSPraise.Controllers
         public ActionResult Create(Blog blog)
         {
             var currentUser = new UserRepository().GetCurrentUser();
-            blog.PublisherID = currentUser.ID;
+            blog.PosterID = currentUser.IdentityID;
             blog.Date = DateTime.Now;
             blogRepo.Add(blog);
 
-            return RedirectToAction("Home", new { id = currentUser.ID, page = 1 });
+            return RedirectToAction("Home", new { id = currentUser.IdentityID, page = 1 });
         }
 
     }

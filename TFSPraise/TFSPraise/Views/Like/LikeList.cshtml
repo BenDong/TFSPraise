@@ -1,0 +1,22 @@
+﻿@using TFSPraise.Models
+@model ListViewModel<TFSPraise.Entities.Like>
+
+<div>
+    @foreach (var Like in Model.List)
+    {
+        string recevierNameList = string.Empty;
+        var receivers = Like.Receivers.ToList();
+        if (receivers.Count > 0)
+        {
+            foreach (var receiver in receivers)
+            {
+                recevierNameList += receiver.Name + ";";
+            }
+        }
+        <div>Thank You: @recevierNameList</div>
+        <div>@Like.Content</div>
+        <div>@Like.Sponsor.Identity.Name  @Like.Date.ToShortDateString()</div>
+
+    }
+</div>
+<div class="btn-group">@Html.PageLinks(Model.PageInfo, n => Url.Action("LikeList", "Like", new { page = n }))</div>

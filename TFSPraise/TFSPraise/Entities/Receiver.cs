@@ -7,12 +7,11 @@ namespace TFSPraise.Entities
     {
         public Receiver()
         {
-            Praises = new List<Praise>();
+            Likes = new List<Like>();
         }
         public string Name { get; set; }
         public string DisplayName { get; set; }
         public int ID { get; set; }
-        public bool Resign { get; set; }
-        public virtual ICollection<Praise> Praises { get; set; }
+        public virtual ICollection<Like> Likes { get; set; }
     }
 }

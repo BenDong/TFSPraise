@@ -8,7 +8,7 @@ using TFSPraise.Entities;
 
 namespace TFSPraise.Concrete
 {
-    public class PraiseRepository : RepositoryBase<Praise>
+    public class LikeRepository : RepositoryBase<Like>
     {
       
     }

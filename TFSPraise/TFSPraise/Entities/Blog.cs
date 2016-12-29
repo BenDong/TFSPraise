@@ -9,9 +9,9 @@ namespace TFSPraise.Entities
     {
         public string Title { get; set; }
         public string Content { get; set; }
-        public int ID { get; set; }
-        public int PublisherID { get; set; }
+        public int PostID { get; set; }
+        public int PosterID { get; set; }
         public DateTime Date { get; set; }
-        public virtual UserProfile Publisher { get; set; }
+        public virtual UserProfile Poster { get; set; }
     }
 }

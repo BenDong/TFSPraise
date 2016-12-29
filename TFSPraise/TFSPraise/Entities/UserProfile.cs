@@ -6,13 +6,13 @@ namespace TFSPraise.Entities
     {
         public UserProfile()
         {
-            Praises = new List<Praise>();
+            Likes = new List<Like>();
             Blogs = new List<Blog>();
         }
-        public int ID { get; set; }
+        public int IdentityID { get; set; }
         public bool Resign { get; set; }
         public virtual Identity Identity { get; set; }
-        public virtual ICollection<Praise> Praises { get; set; }
+        public virtual ICollection<Like> Likes { get; set; }
         public virtual ICollection<Blog> Blogs { get; set; }
     }
 }

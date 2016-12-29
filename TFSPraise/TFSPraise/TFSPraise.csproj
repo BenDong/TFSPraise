@@ -185,14 +185,14 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Concrete\BlogRepository.cs" />
     <Compile Include="Concrete\UserRepository.cs" />
-    <Compile Include="Concrete\PraiseRepository.cs" />
+    <Compile Include="Concrete\LikeRepository.cs" />
     <Compile Include="Concrete\Context\TFSPraiseContext.cs" />
     <Compile Include="Controllers\BlogController.cs" />
-    <Compile Include="Controllers\PraiseController.cs" />
+    <Compile Include="Controllers\LikeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Entities\Blog.cs" />
     <Compile Include="Entities\Identity.cs" />
-    <Compile Include="Entities\Praise.cs" />
+    <Compile Include="Entities\Like.cs" />
     <Compile Include="Entities\UserProfile.cs" />
     <Compile Include="Entities\Receiver.cs" />
     <Compile Include="Global.asax.cs">
@@ -201,9 +201,9 @@
     <Compile Include="HtmlHelpers\PagingHelper.cs" />
     <Compile Include="HtmlHelpers\InputHelper.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
-    <Compile Include="Migrations\201612270911402_init.cs" />
-    <Compile Include="Migrations\201612270911402_init.Designer.cs">
-      <DependentUpon>201612270911402_init.cs</DependentUpon>
+    <Compile Include="Migrations\201612290323552_init.cs" />
+    <Compile Include="Migrations\201612290323552_init.Designer.cs">
+      <DependentUpon>201612290323552_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\PageInfo.cs" />
@@ -221,7 +221,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Praise\PraiseList.cshtml" />
+    <Content Include="Views\Like\LikeList.cshtml" />
     <Content Include="Views\Blog\Home.cshtml" />
     <Content Include="Views\Shared\_BlogLayout.cshtml" />
     <Content Include="Views\Blog\Create.cshtml" />
@@ -237,8 +237,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612270911402_init.resx">
-      <DependentUpon>201612270911402_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612290323552_init.resx">
+      <DependentUpon>201612290323552_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

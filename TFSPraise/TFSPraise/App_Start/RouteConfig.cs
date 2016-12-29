@@ -23,7 +23,7 @@ namespace TFSPraise
             routes.MapRoute(
                 name: "PraiseRoute",
                 url: "{controller}/{action}/{page}",
-                defaults: new { controller = "Praise", action = "PraiseList", page = UrlParameter.Optional }
+                defaults: new { controller = "Like", action = "LikeList", page = UrlParameter.Optional }
             );
         }
     }

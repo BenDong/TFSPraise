@@ -13,7 +13,7 @@ namespace TFSPraise.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201612270911402_init"; }
+            get { return "201612290323552_init"; }
         }
         
         string IMigrationMetadata.Source

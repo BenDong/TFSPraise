@@ -4,18 +4,18 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TFSPraise.Entities
 {
-    public class Praise
+    public class Like
     {
-        public Praise()
+        public Like()
         {
             Receivers = new List<Receiver>();
         }
 
-        public int ID { get; set; }
-        public int OwnerID { get; set; }
+        public int LikeID { get; set; }
+        public int SponsorID { get; set; }
         public string Content { get; set; }
         public DateTime Date { get; set; }
-        public virtual UserProfile Praiser { get; set; }
+        public virtual UserProfile Sponsor { get; set; }
         public virtual ICollection<Receiver> Receivers { get; set; }
     }
 }

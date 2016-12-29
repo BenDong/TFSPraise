@@ -33,7 +33,7 @@ namespace TFSPraise.Infrastructure
         private void AddBindings()
         {
             kernel.Bind<RepositoryBase<Blog>>().To<BlogRepository>();
-            kernel.Bind<RepositoryBase<Praise>>().To<PraiseRepository>();
+            kernel.Bind<RepositoryBase<Like>>().To<LikeRepository>();
             kernel.Bind<RepositoryBase<UserProfile>>().To<UserRepository>();
         }
     }

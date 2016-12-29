@@ -15,22 +15,12 @@ namespace TFSPraise.Abstract
 
         public RepositoryBase() : this(new TFSPraiseContext()) //Set default DbContext as TFSPraiseContext
         {
-           
+
         }
 
         public RepositoryBase(DbContext context)
         {
             Context = context;
-        }
-
-        /// <summary>
-        /// Asbstract class doesn't support contravariant, to define one 
-        /// </summary>
-        /// <typeparam name="T">Inherit type</typeparam>
-        /// <returns></returns>
-        public T Contravariant<T>() where T: RepositoryBase<TEntity>
-        {
-            return (T)this;
         }
 
         public virtual IEnumerable<TEntity> GetAll()

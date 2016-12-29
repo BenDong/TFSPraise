@@ -21,7 +21,7 @@ namespace TFSPraise.Controllers
         [ChildActionOnly]
         public ActionResult CurrentUser()
         {
-            UserProfile CurrentUserProfile = userRepo.Contravariant<UserRepository>().GetCurrentUser();
+            UserProfile CurrentUserProfile = ((UserRepository)userRepo).GetCurrentUser();
             if(CurrentUserProfile == null)
             {
                 return HttpNotFound("Not found current user");

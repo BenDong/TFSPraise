@@ -9,23 +9,23 @@ using TFSPraise.Entities;
 
 namespace TFSPraise.Controllers
 {
-    public class PraiseController : Controller
+    public class LikeController : Controller
     {
-        private RepositoryBase<Praise> praiseRepo;
+        private RepositoryBase<Like> likeRepo;
         readonly int PageSize = 4;
 
-        public PraiseController(RepositoryBase<Praise> _praiseRepo)
+        public LikeController(RepositoryBase<Like> _likeRepo)
         {
-            praiseRepo = _praiseRepo;
+            likeRepo = _likeRepo;
         }
    
-        public ActionResult PraiseList(int page = 1)
+        public ActionResult LikeList(int page = 1)
         {
-            ListViewModel<Praise> praiseListViewModel = new ListViewModel<Praise>
+            ListViewModel<Like> praiseListViewModel = new ListViewModel<Like>
             {
-                List = praiseRepo.GetAll().Skip(PageSize * (page - 1)).Take(PageSize).ToList(),
+                List = likeRepo.GetAll().Skip(PageSize * (page - 1)).Take(PageSize).ToList(),
                 PageInfo = new PageInfo {
-                    TotalItems = praiseRepo.GetAll().ToList().Count,
+                    TotalItems = likeRepo.GetAll().ToList().Count,
                     CurrentPage = page,
                     ItemsPerPage = PageSize }
             };
