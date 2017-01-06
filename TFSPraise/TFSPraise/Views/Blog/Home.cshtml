@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using TFSPraise.Models
 @model ListViewModel<TFSPraise.Entities.Blog>
@@ -10,7 +10,7 @@
             <h2 class="blog-post-title">@blog.Title</h2>
             <p class="blog-post-meta">
                 @blog.Date.ToShortDateString()
-                <a href=@Url.Action("Home", "Blog", new { id = blog.PublisherID, Page = 1 })>@blog.Publisher.Identity.Name</a>
+                <a href=@Url.Action("Home", "Blog", new { id = blog.PosterID, Page = 1 })>@blog.Poster.Identity.Name</a>
             </p>
             <div>@blog.Content</div>
         </div>
@@ -18,35 +18,7 @@
 
     @Html.PageLinks(Model.PageInfo, n => Url.Action("Home", new { ID = ViewBag.BlogerID, Page = n }))
 </div>
-<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-    <div class="sidebar-module sidebar-module-inset">
-        <h4>About</h4>
-        <p>Welcome to Praise System, this is only the beta one, but we will be in progress to improve experience</p>
-        <p>Thank You, Ben!</p>
-    </div>
-    <div class="sidebar-module">
-        <h4>Archices</h4>
-        <ol class="list-unstyled">
-            <li><a href="#">March 2016</a></li>
-            <li><a href="#">February 2016</a></li>
-            <li><a href="#">January 2016</a></li>
-            <li><a href="#">December 2015</a></li>
-            <li><a href="#">November 2015</a></li>
-            <li><a href="#">October 2014</a></li>
-            <li><a href="#">September 2013</a></li>
-            <li><a href="#">August 2012</a></li>
-            <li><a href="#">July 2013</a></li>
-            <li><a href="#">June 2013</a></li>
-            <li><a href="#">May 2013</a></li>
-            <li><a href="#">April 2013</a></li>
-        </ol>
-    </div>
-    <div>
-        <h4>Elsewhere</h4>
-        <ol class="list-unstyled">
-            <li><a href="https://github.com/BenDong/TFSPraise">GitHub</a></li>
-            <li><a href="https://msdn.microsoft.com/magazine/">MSDN Magazine</a></li>
-            <li><a href="http://www.codeplex.com/">CodePlex</a></li>
-        </ol>
-    </div>
-</div>
+
+<script type="text/javascript" async >
+    setMenuActive("blog");
+</script>

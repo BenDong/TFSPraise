@@ -18,18 +18,26 @@ namespace TFSPraise.Controllers
         {
             likeRepo = _likeRepo;
         }
-   
+
         public ActionResult LikeList(int page = 1)
         {
             ListViewModel<Like> praiseListViewModel = new ListViewModel<Like>
             {
                 List = likeRepo.GetAll().Skip(PageSize * (page - 1)).Take(PageSize).ToList(),
-                PageInfo = new PageInfo {
+                PageInfo = new PageInfo
+                {
                     TotalItems = likeRepo.GetAll().ToList().Count,
                     CurrentPage = page,
-                    ItemsPerPage = PageSize }
+                    ItemsPerPage = PageSize
+                }
             };
             return View(praiseListViewModel);
+        }
+
+        [ChildActionOnly]
+        public int LikesCountToday()
+        {
+            return likeRepo.GetAll().ToList().Count;
         }
     }
 }

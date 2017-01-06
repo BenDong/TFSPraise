@@ -17,9 +17,10 @@ namespace TFSPraise.Concrete
             UserProfile currentUserProfile = Get(u => u.Identity.Name == identity.Name).FirstOrDefault();
             if (currentUserProfile == null)
             {
-                currentUserProfile = new UserProfile {
-                    Identity = new Identity { Name = identity.Name },
-                    Resign =  false
+                currentUserProfile = new UserProfile
+                {
+                    Identity = new Identity { Name = identity.Name, DispalyName = "Ben dong" },
+                    Resign = false
                 };
 
                 Add(currentUserProfile);
