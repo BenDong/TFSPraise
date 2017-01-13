@@ -12,6 +12,9 @@
     <link href="~/Content/animate.css" rel="stylesheet" />
     <link href="~/Content/style.css" rel="stylesheet" />
     <script src="~/scripts/sidemenu.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/scripts/jquery.canvasjs.min.js"></script>
 </head>
 <body class="pace-done">
     <div id="wrapper">
@@ -62,30 +65,11 @@
         <div class="row  border-bottom white-bg dashboard-header">
             <div class="col-md-4">
                 @Html.Action("LikeRanking", "Like")
-            </div>
+            </div><!--Likes ranking part-->
             <div class="col-md-8">
                 <div class="flot-chart dashboard-chart">
-                    <div class="flot-chart-content" id="flot-dashboard-chart" style="padding: 0px; position: relative;">
-                        <canvas class="flot-base" width="514" height="180" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 514.5px; height: 180px;"></canvas>
-                        <div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
-                            <div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;">
-                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 164px; left: 11px; text-align: center;">0.0</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 164px; left: 87px; text-align: center;">2.5</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 164px; left: 163px; text-align: center;">5.0</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 164px; left: 238px; text-align: center;">7.5</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 164px; left: 311px; text-align: center;">10.0</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 164px; left: 387px; text-align: center;">12.5</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 164px; left: 462px; text-align: center;">15.0</div>
-                            </div>
-                            <div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;">
-                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 152px; left: 7px; text-align: right;">0</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 114px; left: 1px; text-align: right;">10</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 76px; left: 1px; text-align: right;">20</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 38px; left: 1px; text-align: right;">30</div>
-                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 1px; text-align: right;">40</div>
-                            </div>
-                        </div>
-                        <canvas class="flot-overlay" width="514" height="180" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 514.5px; height: 180px;"></canvas>
+                    <div class="flot-chart-content" id="flot-dashboard-chart" style="padding: 0px; position: relative; width:80%">
+                        @Html.Action("LikeChart", "Like")
                     </div>
                     <div class="row text-left">
                         <div class="col-xs-4">
@@ -112,10 +96,7 @@
                     </div>
                 </div>
             </div>
-        </div>
         @RenderBody()
     </div>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>

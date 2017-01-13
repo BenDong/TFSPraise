@@ -39,11 +39,22 @@ namespace TFSPraise.Controllers
 
         public ActionResult LikeRanking()
         {
-            var usersInfoOrdered = userRepo.GetAll().OrderByDescending(u=>u.Likes.Count).ToList();
-
+            var usersOrdered = userRepo.GetAll().OrderByDescending(u=>u.Likes.Count).ToList();
             ViewBag.CurrentUserName = ((UserRepository)userRepo).GetCurrentUser().Identity.DispalyName;
 
-            return PartialView(usersInfoOrdered);
+            return PartialView(usersOrdered);
+        }
+
+        public ActionResult LikeChart()
+        {
+            Dictionary<int, int> chartDatas = new Dictionary<int, int>();
+            var likeGroups = likeRepo.GetAll().GroupBy(l => l.Date.Month);
+            foreach (var group in likeGroups)
+            {
+                chartDatas.Add(group.Key, group.ToList().Count);
+            }
+
+            return PartialView(chartDatas);
         }
 
         [ChildActionOnly]

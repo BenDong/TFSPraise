@@ -1,0 +1,35 @@
+﻿@model Dictionary<int, int>
+
+<script type="text/javascript" async>
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var points = [];
+    var p;
+    var val;
+    for (var i = 0; i < months.length; i++) {
+        p = { x: i, y: i + 3*i*i };
+        points.push(p)
+    }
+    $(function () {
+        //Better to construct options first and then pass it as a parameter
+        var options = {
+            exportEnabled: true,
+            animationEnabled: true,
+            axisX: {
+                gridThickness: 0
+            },
+            axisY: {
+                gridThickness: 0
+            },
+            data: [
+            {
+                type: "splineArea", //change it to line, area, bar, pie, etc
+                dataPoints: points
+            }
+            ]
+        };
+
+        $("#flot-dashboard-chart").CanvasJSChart(options);
+
+    });
+
+</script>

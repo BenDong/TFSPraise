@@ -184,8 +184,10 @@
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\canvasjs.min.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\jquery.canvasjs.min.js" />
     <Content Include="scripts\sidemenu.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -240,6 +242,7 @@
     <Content Include="Views\Blog\Create.cshtml" />
     <Content Include="Views\User\CurrentUser.cshtml" />
     <Content Include="Views\Like\LikeRanking.cshtml" />
+    <Content Include="Views\Like\LikeChart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

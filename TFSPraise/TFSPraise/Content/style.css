@@ -8389,3 +8389,7 @@ body.md-skin {
     margin: 0;
   }
 }
+
+.canvasjs-chart-credit {
+   display: none;
+}

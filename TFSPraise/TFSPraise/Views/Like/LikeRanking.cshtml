@@ -17,25 +17,12 @@
     @for (int pos = 0; pos < Model.ToList().Count && pos < 5; pos++)
     {
         UserProfile user = Model.Skip(pos).Take(1).FirstOrDefault();
-        if (pos == 0)
-        {
-            <li class="list-group-item fist-item">
-                <span class="pull-right">
-                    @user.Likes.Count
-                    <i class="fa fa-heart" style="color: red"></i>
-                </span>
-                <span class="@rankIconStyles[pos]">@pos</span> @user.Identity.DispalyName
-            </li>
-        }
-        else
-        {
-            <li class="list-group-item">
-                <span class="pull-right">
-                    @user.Likes.Count
-                    <i class="fa fa-heart" style="color: red"></i>
-                </span>
-                <span class="@rankIconStyles[pos]">@pos</span> @user.Identity.DispalyName
-            </li>
-        }
+        <li class="list-group-item">
+            <span class="pull-right">
+                @user.Likes.Count
+                <i class="fa fa-heart" style="color: red"></i>
+            </span>
+            <span class="@rankIconStyles[pos]">@pos</span> @user.Identity.DispalyName
+        </li>
     }
 </ul>
