@@ -1,0 +1,41 @@
+﻿@using TFSPraise.Entities
+@model IEnumerable<UserProfile>
+@{
+    string[] rankIconStyles = new string[]
+    {
+        "label label-success",
+        "label label-info",
+        "label label-primary",
+        "label label-default",
+        "label label-primary"
+    };
+}
+
+<h2>@ViewBag.CurrentUserName</h2>
+<small>You have @Html.Action("LikesWarning") messages</small>
+<ul class="list-group clear-list m-t">
+    @for (int pos = 0; pos < Model.ToList().Count && pos < 5; pos++)
+    {
+        UserProfile user = Model.Skip(pos).Take(1).FirstOrDefault();
+        if (pos == 0)
+        {
+            <li class="list-group-item fist-item">
+                <span class="pull-right">
+                    @user.Likes.Count
+                    <i class="fa fa-heart" style="color: red"></i>
+                </span>
+                <span class="@rankIconStyles[pos]">@pos</span> @user.Identity.DispalyName
+            </li>
+        }
+        else
+        {
+            <li class="list-group-item">
+                <span class="pull-right">
+                    @user.Likes.Count
+                    <i class="fa fa-heart" style="color: red"></i>
+                </span>
+                <span class="@rankIconStyles[pos]">@pos</span> @user.Identity.DispalyName
+            </li>
+        }
+    }
+</ul>

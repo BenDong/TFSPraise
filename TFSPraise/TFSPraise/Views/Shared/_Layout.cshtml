@@ -4,14 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
-    <link rel="icon" href="data:;base64,iVBORw0KGgo="><!--To forbid loading favicon, refer to http://stackoverflow.com/questions/1321878/how-to-prevent-favicon-ico-requests# --> 
+    <link rel="icon" href="data:;base64,iVBORw0KGgo="><!--To forbid loading favicon, refer to http://stackoverflow.com/questions/1321878/how-to-prevent-favicon-ico-requests# -->
     <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/font-awesome.css" rel="stylesheet" />
     <link href="~/Content/toastr.min.css" rel="stylesheet" />
     <link href="~/Content/jquery.gritter.css" rel="stylesheet" />
     <link href="~/Content/animate.css" rel="stylesheet" />
     <link href="~/Content/style.css" rel="stylesheet" />
-    <link href="~/Content/blog.css" rel="stylesheet" type="text/css" />
     <script src="~/scripts/sidemenu.js"></script>
 </head>
 <body class="pace-done">
@@ -24,16 +23,98 @@
                         <a href=@Url.Action("Home", "Blog")><i class="fa fa-th-large"></i> <span class="nav-label">Home</span></a>
                     </li>
                     <li id="like">
-                        <a href=@Url.Action("LikeList", "Like")><i class="fa fa-edit"></i> 
-                        <span class="nav-label">Likes</span>
-                        <span class="label label-warning pull-right">@Html.Action("LikesCountToday", "Like")</span>
+                        <a href=@Url.Action("LikeList", "Like")>
+                            <i class="fa fa-edit"></i>
+                            <span class="nav-label">Likes</span>
+                            <span class="label label-warning pull-right">@Html.Action("LikesWarning", "Like")</span>
                         </a>
                     </li>
                 </ul>
             </div>
         </nav>
     </div>
-    <div id="page-wrapper" class="gray-bg dashoard-1" style="min-height: 617px;">@RenderBody()</div>
+    <div id="page-wrapper" class="gray-bg dashoard-1" style="min-height: 1000px">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <form role="search" action="#" class="navbar-form-custom">
+                        <div class="form-group">
+                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <span class="m-r-sm text-muted welcome-message">Welcome to TFS CTI System</span>
+                    </li>
+                    <li>
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <i class="fa fa-bell"></i>
+                            <span class="label label-primary">8</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div><!--Navigation-->
+        <div class="row  border-bottom white-bg dashboard-header">
+            <div class="col-md-4">
+                @Html.Action("LikeRanking", "Like")
+            </div>
+            <div class="col-md-8">
+                <div class="flot-chart dashboard-chart">
+                    <div class="flot-chart-content" id="flot-dashboard-chart" style="padding: 0px; position: relative;">
+                        <canvas class="flot-base" width="514" height="180" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 514.5px; height: 180px;"></canvas>
+                        <div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
+                            <div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;">
+                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 164px; left: 11px; text-align: center;">0.0</div>
+                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 164px; left: 87px; text-align: center;">2.5</div>
+                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 164px; left: 163px; text-align: center;">5.0</div>
+                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 164px; left: 238px; text-align: center;">7.5</div>
+                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 164px; left: 311px; text-align: center;">10.0</div>
+                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 164px; left: 387px; text-align: center;">12.5</div>
+                                <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 64px; top: 164px; left: 462px; text-align: center;">15.0</div>
+                            </div>
+                            <div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;">
+                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 152px; left: 7px; text-align: right;">0</div>
+                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 114px; left: 1px; text-align: right;">10</div>
+                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 76px; left: 1px; text-align: right;">20</div>
+                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 38px; left: 1px; text-align: right;">30</div>
+                                <div class="flot-tick-label tickLabel" style="position: absolute; top: 1px; left: 1px; text-align: right;">40</div>
+                            </div>
+                        </div>
+                        <canvas class="flot-overlay" width="514" height="180" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 514.5px; height: 180px;"></canvas>
+                    </div>
+                    <div class="row text-left">
+                        <div class="col-xs-4">
+                            <div class="m-l-md">
+                                <span class="h4 font-bold m-t block">
+                                40
+                                </span>
+                                <small class="text-muted m-b block">Last Month</small>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <span class="h4 font-bold m-t block">
+                                12
+                            </span>
+                            <small class="text-muted m-b block">Last Week</small>
+                        </div>
+                        <div class="col-xs-4">
+                            <span class="h4 font-bold m-t block">
+                                6
+                            </span>
+                            <small class="text-muted m-b block">This Week</small>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        @RenderBody()
+    </div>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
