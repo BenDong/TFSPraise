@@ -7,6 +7,7 @@ using TFSPraise.Abstract;
 using TFSPraise.Models;
 using TFSPraise.Entities;
 using TFSPraise.Concrete;
+using Newtonsoft.Json;
 
 namespace TFSPraise.Controllers
 {
@@ -47,14 +48,17 @@ namespace TFSPraise.Controllers
 
         public ActionResult LikeChart()
         {
-            Dictionary<int, int> chartDatas = new Dictionary<int, int>();
+            string[] months = new string[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
             var likeGroups = likeRepo.GetAll().GroupBy(l => l.Date.Month);
+            List<DataPoint> dataPoints = new List<DataPoint>();
             foreach (var group in likeGroups)
             {
-                chartDatas.Add(group.Key, group.ToList().Count);
+                dataPoints.Add(new DataPoint(group.Key, group.Count(), months[group.Key - 1]));
             }
 
-            return PartialView(chartDatas);
+            ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
+
+            return PartialView();
         }
 
         [ChildActionOnly]
