@@ -1,0 +1,36 @@
+﻿<select id="receiver-picker" data-bind="options: $root.availableReceivers, optionsValue: 'id', optionsText: 'DisplayName'"></select>
+<ul data-bind="foreach: receivers">
+    <li data-bind="text: displayName"></li>
+</ul>
+<button data-bind="click: addReceiver">Add Receiver</button>
+
+<script type="text/javascript">
+    var receiverPicker = document.getElementById("receiver-picker");
+ 
+    function User(name, id) {
+        var self = this;
+        self.displayName = name;
+        self.ID = id
+    }
+
+    function ReceiversViewModel() {
+        var self = this;
+        self.availableReceivers = @Html.Raw(Json.Encode(ViewBag.AvailableReceivers));
+        self.receivers = ko.observableArray([]);
+        self.addReceiver = function () {
+            self.receivers.push(new User(getSelectedText("receiver-picker"), receiverPicker.value));
+        }
+    }
+
+    ko.applyBindings(new ReceiversViewModel());
+
+    function getSelectedText(elementID) {
+        var elt = document.getElementById(elementID);
+        if (elt.selectedIndex == -1) {
+            return null;
+        }
+
+        return elt.options[elt.selectedIndex].text;
+    }
+</script>
+

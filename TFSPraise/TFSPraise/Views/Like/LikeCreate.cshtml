@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Like Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model TFSPraise.Entities.Like
+
+@using (Html.BeginForm("LikeCreate", "Like", FormMethod.Post))
+{
+    @Html.Partial("AddReceivers");
+    <p>Like Content</p>
+    <div> @Html.TextAreaFor(x => x.Content)</div>
+    @Html.InputEditor("Submit", "Save", new { @Class = "btn btn-default" }); @Html.InputEditor("Button", "Cancel", new { @Class = "btn btn-default" });
+}
+
+

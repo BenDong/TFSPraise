@@ -35,6 +35,7 @@ namespace TFSPraise.Infrastructure
             kernel.Bind<RepositoryBase<Blog>>().To<BlogRepository>();
             kernel.Bind<RepositoryBase<Like>>().To<LikeRepository>();
             kernel.Bind<RepositoryBase<UserProfile>>().To<UserRepository>();
+            kernel.Bind<RepositoryBase<Receiver>>().To<ReceiverRepository>();
         }
     }
 }

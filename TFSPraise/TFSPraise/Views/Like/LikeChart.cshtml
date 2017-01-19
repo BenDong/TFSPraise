@@ -1,6 +1,5 @@
 ﻿<script type="text/javascript" async>
     $(function () {
-        //Better to construct options first and then pass it as a parameter
         var options = {
             exportEnabled: true,
             animationEnabled: true,
@@ -12,7 +11,7 @@
             },
             data: [
             {
-                type: "splineArea", //change it to line, area, bar, pie, etc
+                type: "splineArea", 
                 dataPoints: @Html.Raw(ViewBag.DataPoints),
             }
             ]

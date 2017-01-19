@@ -9,24 +9,20 @@ namespace TFSPraise.Models
     [DataContract]
     public class DataPoint
     {
-        public DataPoint()
-        {
-
-        }
         public DataPoint(int x, int y, string label)
         {
-            this.X = x;
-            this.Y = y;
+            this.AxisX = x;
+            this.AxisY = y;
             this.Label = label;
         }
 
         [DataMember(Name = "label")]
         public string Label { get; set; }
-        [DataMember(Name ="x")]
-        public Nullable<int> X { get; set; }
+        [DataMember(Name = "x")]
+        public Nullable<int> AxisX { get; set; }
         [DataMember(Name = "y")]
-        public Nullable<int> Y { get; set; }
+        public Nullable<int> AxisY { get; set; }
         [DataMember(Name = "z")]
-        public Nullable<double> Z { get; set; }
+        public Nullable<double> AxisZ { get; set; }
     }
 }

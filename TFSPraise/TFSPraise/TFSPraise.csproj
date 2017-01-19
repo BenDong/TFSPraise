@@ -189,6 +189,8 @@
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="scripts\jquery.canvasjs.min.js" />
+    <Content Include="scripts\knockout-3.4.1.debug.js" />
+    <Content Include="scripts\knockout-3.4.1.js" />
     <Content Include="scripts\sidemenu.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -200,6 +202,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Concrete\Repositorys\BlogRepository.cs" />
+    <Compile Include="Concrete\Repositorys\ReceiverRepository.cs" />
     <Compile Include="Concrete\Repositorys\UserRepository.cs" />
     <Compile Include="Concrete\Repositorys\LikeRepository.cs" />
     <Compile Include="Concrete\Context\TFSPraiseContext.cs" />
@@ -245,6 +248,8 @@
     <Content Include="Views\User\CurrentUser.cshtml" />
     <Content Include="Views\Like\LikeRanking.cshtml" />
     <Content Include="Views\Like\LikeChart.cshtml" />
+    <Content Include="Views\Like\LikeCreate.cshtml" />
+    <Content Include="Views\Like\AddReceivers.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

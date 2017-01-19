@@ -24,7 +24,7 @@ namespace TFSPraise.Controllers
         {
             IEnumerable<Blog> blogs = id == 0 ? blogRepo.GetAll() : blogRepo.GetAll().Where(b => b.Poster.Identity.IdentityID == id);
             blogs = blogs.Reverse();
-          
+
             ListViewModel<Blog> blogListViewModel = new ListViewModel<Blog>
             {
                 List = blogs.Skip(PageSize * (page - 1)).Take(PageSize).ToList(),
