@@ -19,11 +19,11 @@ namespace TFSPraise.Controllers
         private UserProfile CurrentUser;
         readonly int PageSize = 4;
 
-        public LikeController(RepositoryBase<Like> _lRepo, RepositoryBase<UserProfile> _uRepo, RepositoryBase<Receiver> _rRepo)
+        public LikeController(RepositoryBase<Like> _likeRepo, RepositoryBase<UserProfile> _userRepo, RepositoryBase<Receiver> _receiverRepo)
         {
-            likeRepo = _lRepo;
-            userRepo = _uRepo;
-            receiverRepo = _rRepo;
+            likeRepo = _likeRepo;
+            userRepo = _userRepo;
+            receiverRepo = _receiverRepo;
             CurrentUser = ((UserRepository)userRepo).GetCurrentUser();
         }
 

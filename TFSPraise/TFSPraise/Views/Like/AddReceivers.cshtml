@@ -1,7 +1,7 @@
-﻿<select id="receiver-picker" data-bind="options: $root.availableReceivers, optionsValue: 'id', optionsText: 'DisplayName'"></select>
-<ul data-bind="foreach: receivers">
-    <li data-bind="text: displayName"></li>
-</ul>
+﻿<select id="receiver-picker" data-bind="options: $root.availableReceivers, optionsValue: 'ID', optionsText: 'DisplayName'"></select>
+<div data-bind="foreach: receivers">
+    <li data-bind="text: displayName" name=""></li>
+</div>
 <button data-bind="click: addReceiver">Add Receiver</button>
 
 <script type="text/javascript">
@@ -9,12 +9,14 @@
  
     function User(name, id) {
         var self = this;
+
         self.displayName = name;
         self.ID = id
     }
 
     function ReceiversViewModel() {
         var self = this;
+
         self.availableReceivers = @Html.Raw(Json.Encode(ViewBag.AvailableReceivers));
         self.receivers = ko.observableArray([]);
         self.addReceiver = function () {

@@ -1,6 +1,6 @@
-﻿function setMenuActive(id) {
-    var menu_ele = document.getElementById(id);
-    if (menu_ele) {
-        menu_ele.className = "active";
+﻿function setMenuActive(menu_id) {
+    var menu_elt = document.getElementById(menu_id);
+    if (menu_elt) {
+        menu_elt.className = "active";
     }
 }
